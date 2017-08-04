@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="stylesheet" href="./stylesheets/main.css">
+
+        <script src="./javascripts/head.min.js"></script>
+        <script>
+        window.translationsLoaded = false;
+        window.templatesDone = false;
+
+        // Using i18next for 118n https://www.i18next.com
+        i18next.use(i18nextXHRBackend);
+        i18next.init({
+            'debug': true,
+            'lng': 'en',
+            'fallbackLng': 'en',
+            backend: {
+              loadPath: '/locales/{{lng}}.json'
+            }
+        }, function() {
+            jqueryI18next.init(i18next, $);
+            window.translationsLoaded = true;
+            console.log("i18n ready");
+        });
+
+        // Set up the templates
+        function loadTemplate() {
+          $.get('/templates/example-template.mst', function(template) {
+            var rendered = Mustache.render(template, {name: "Luke"});
+            $('#target').html(rendered);
+            window.templatesDone = true;
+            console.log("Templates done");
+          });
+
+        }
+
+        loadTemplate();
+
+        // Use requestAnimationFrame to poll until page is ready to be localised
+        var check = window.requestAnimationFrame;
+        function poll() {
+          if (window.templatesDone && window.translationsLoaded) {
+            $('body').localize();
+          } else {
+            check(poll);
+          }
+        }
+        // Call the poll for the first time
+        poll();
+        </script>
+    </head>
+    <body>
+        <div id="target"></div>
+    </body>
+</html>
+
