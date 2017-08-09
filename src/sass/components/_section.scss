@@ -1,0 +1,20 @@
+/* Styles for the section containers */
+
+.section {
+  min-height: 20em;
+}
+
+.section-content {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  margin: 0 auto;
+  width: auto;
+}
+
+.section.bg-white {
+  background: #fff;
+  border: 1px solid #aaa;
+  border-radius: 10px;
+  padding: .5em 1em;
+}

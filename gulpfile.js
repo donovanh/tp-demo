@@ -8,7 +8,8 @@ var gulp = require("gulp"),
     rename = require("gulp-rename"),
     uglify = require("gulp-uglify"),
     autoprefixer = require("gulp-autoprefixer"),
-    sourcemaps = require('gulp-sourcemaps');
+    sourcemaps = require('gulp-sourcemaps'),
+    plumber = require('gulp-plumber');
 
 gulp.dest(function(file){
   return path.join(build_dir, path.dirname(file.path));
@@ -61,6 +62,7 @@ gulp.task("templates", function() {
 
 gulp.task("css", function () {
   return gulp.src('./src/sass/**/*.scss')
+    .pipe(plumber())
     .pipe(sourcemaps.init())
     .pipe(sass({outputStyle: 'compressed'}))
     .pipe(autoprefixer('last 2 versions', { cascade: true }))
@@ -78,6 +80,7 @@ gulp.task("headjs", function() {
     "./src/vendor/mustache.js"
   ];
   return gulp.src(scripts)
+    .pipe(plumber())
     .pipe(concat('head.js'))
     .pipe(gulp.dest('build/javascripts'))
     .pipe(rename('head.min.js'))
@@ -90,6 +93,7 @@ gulp.task("js", function() {
     "./src/javascripts/**/*.js"
   ];
   return gulp.src(scripts)
+    .pipe(plumber())
     .pipe(concat('main.js'))
     .pipe(gulp.dest('build/javascripts'))
     .pipe(rename('main.min.js'))

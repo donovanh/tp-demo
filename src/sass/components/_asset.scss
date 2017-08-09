@@ -1,0 +1,113 @@
+/* Styles for the assets (bricks, books, bundles) */
+
+.asset {
+  .asset-title {
+    font-size: 1em;
+  }
+
+  &.brick {
+    margin: 1em;
+    width: 164px;
+
+    .image {
+      background-size: cover;
+      border-radius: 4px;
+      display: block;
+      width: 164px;
+      height: 90px; 
+    }
+
+  }
+
+  &.book {
+    margin: 1em;
+    width: 140px;
+
+    .image {
+      background-size: cover;
+      border-radius: 4px;
+      display: block;
+      width: 70px;
+      height: 90px; 
+    }
+
+  }
+
+  &.icon {
+    margin: 1em;
+    width: 144px;
+
+    .image {
+      background-size: cover;
+      border-radius: 50%;
+      display: block;
+      margin: 0 auto;
+      width: 50px;
+      height: 50px; 
+    }
+
+    .asset-title {
+      text-align: center;
+      margin-top: .5em;
+    }
+
+  }
+
+  &.bundle {
+    margin: 1em;
+    width: 164px;
+
+    .image {
+      background-size: cover;
+      border-radius: 4px;
+      display: block;
+      width: 164px;
+      height: 90px; 
+    }
+
+    .asset-pricing {
+      font-size: .9em;
+      margin-top: 0;
+    }
+
+    .asset-number-of-apps:after {
+      content: " |";
+    }
+
+    &.with-child {
+      position: relative;
+      width: 240px;
+
+      .child-image {
+        display: block;
+        border-radius: 4px;
+        background-size: cover;
+        position: absolute;
+          top: 40px;
+          right: 10px;
+        width: 50px;
+        height: 50px;
+      }
+
+      .asset-pricing {
+        font-size: .75em;
+        line-height: .75;
+        position: absolute;
+          top: 5px;
+          right: 10px;
+          left: 174px;
+        text-align: center;
+      }
+
+      .asset-number-of-apps {
+        display: block;
+        &:after {
+          content: "";
+        }
+      }
+
+    }
+
+  }
+}
+

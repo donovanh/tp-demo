@@ -1,0 +1,56 @@
+/* Styles for the styleguide reference pages only - remove this from uploaded zip files during build */
+
+@import "utilities/simple-grid";
+
+.hidden {
+  display: none
+}
+
+body {
+  background: #60D4E1;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+/* Code example usage blocks */
+
+.usage {
+  border-radius: 4px;
+  padding: 1em 2em;
+  background: #ddd;
+  margin-bottom: 0;
+}
+
+code {
+  font-family: monospace;
+}
+
+.toggle-usage {
+  background: #ddd;
+  border-radius: 4px;
+  cursor: pointer;
+  display: inline-block;
+  font-size: 14px;
+  padding: .5em 1.5em;
+}
+
+.toggle-usage:before {
+  content: "Show "
+}
+
+.toggle-usage.hide:before {
+  content: "Hide "
+}
+
+.example {
+  margin: 1em 0 2em;
+}
+
+.assets .example {
+  background: #fff;
+  border-radius: .5em;
+  width: 49%;
+  padding: 1em;
+}

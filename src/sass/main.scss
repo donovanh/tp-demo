@@ -1,4 +1,8 @@
 /* Main Stylesheet - includes settings, and other components as needed */
 
 /* Basics */
-@import "utilities/simple-grid";
+@import "base";
+
+/* Components */
+@import "components/section";
+@import "components/asset";

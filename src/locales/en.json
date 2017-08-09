@@ -1,7 +1,13 @@
 {
-  "nav": {
-    "home": "Home",
-    "page1": "Page One",
-    "page2": "Page Two"
-  }
+  "section1Title": "Section 1 Title",
+  "section2Title": "Section 2 Title",
+  "section3Title": "Section containing assets",
+  "app": "{{number}} app",
+  "app_plural": "{{number}} apps",
+  "asset1Title": "Example brick",
+  "asset2Title": "Example book",
+  "asset3Title": "Example icon",
+  "asset4Title": "Example bundle",
+  "asset5Title": "Example bundle with child icon",
+  "currencySymbol": "£"
 }
