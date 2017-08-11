@@ -9,5 +9,8 @@
   "asset3Title": "Example icon",
   "asset4Title": "Example bundle",
   "asset5Title": "Example bundle with child icon",
-  "currencySymbol": "£"
+  "currencySymbol": "£",
+  "firstGroupTitle": "First group in section",
+  "secondGroupTitle": "Second group in section",
+  "sectionInlineTitle": "Inline assets"
 }

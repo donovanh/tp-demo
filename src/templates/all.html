@@ -1,0 +1,85 @@
+<script id="section-template" type="text/html">
+  <section class="section {{bgClass}}">
+    {{#title}}
+      <h2 class="section-title" data-i18n="{{i18n.title}}">{{title}}</h2>
+    {{/title}}
+    <div class="section-content">
+      {{{ inlineContent }}}
+      {{{ content }}}
+    </div>
+  </section>
+</script>
+
+<script id="page-title-template" type="text/html">
+  <div class="page-title">
+    <img src="{{image}}"
+      {{#width}}width="{{width}}"{{/width}}
+      {{#height}}height="{{height}}"{{/height}}
+    >
+  </div>
+</script>
+
+<script id="asset-template" type="text/html">
+  <div class="asset {{class}}">
+    {{#i18n.locale}}
+      <span class="image" style="background-image: url('{{image}}{{i18n.locale}}@4x.jpg')"></span>
+    {{/i18n.locale}}
+    {{^i18n.locale}}
+      <span class="image" style="background-image: url('{{image}}')"></span>
+    {{/i18n.locale}}
+    {{#i18n.title}}
+      <h2 class="asset-title" data-i18n="{{i18n.title}}">{{title}}</h2>
+    {{/i18n.title}}
+    {{^i18n.title}}
+      <h2 class="asset-title">{{title}}</h2>
+    {{/i18n.title}}
+  </div>
+</script>
+
+<script id="asset-group-template" type="text/html">
+  <div class="asset-group">
+    <h2 class="section-title" data-i18n="{{titlei18nKey}}">{{title}}</h2>
+    <div class="section-content">
+      {{#items}}
+        <div class="asset {{class}}">
+          {{#i18n.locale}}
+            <span class="image" style="background-image: url('{{image}}{{i18n.locale}}@4x.jpg')"></span>
+          {{/i18n.locale}}
+          {{^i18n.locale}}
+            <span class="image" style="background-image: url('{{image}}')"></span>
+          {{/i18n.locale}}
+          {{#i18n.title}}
+            <h2 class="asset-title" data-i18n="{{i18n.title}}">{{title}}</h2>
+          {{/i18n.title}}
+          {{^i18n.title}}
+            <h2 class="asset-title">{{title}}</h2>
+          {{/i18n.title}}
+        </div>
+      {{/items}}
+    </div>
+  </div>
+</script>
+
+<script id="bundle-template" type="text/html">
+  <div class="asset bundle {{class}}">
+    {{#i18n.locale}}
+      <span class="image" style="background-image: url('{{image}}{{i18n.locale}}@4x.jpg')"></span>
+    {{/i18n.locale}}
+    {{^i18n.locale}}
+      <span class="image" style="background-image: url('{{image}}')"></span>
+    {{/i18n.locale}}
+    <h2 class="asset-title">{{title}}</h2>
+    <p class="asset-pricing">
+      <span class="asset-number-of-apps">
+        {{numberOfApps}} 
+        <span data-i18n="app" data-i18n-options='{ "count": {{numberOfApps}} }'>apps</span>
+      </span>
+      <span class="asset-price">
+        <span data-i18n="currencySymbol">$</span>{{price}}
+      </span>
+    </p>
+    {{#childImage}}
+      <span class="child-image" style="background-image: url('{{childImage}}')"></span>
+    {{/childImage}}
+  </div>
+</script>

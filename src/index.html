@@ -11,123 +11,36 @@
     <link rel="stylesheet" href="./stylesheets/main.css">
 
     <script src="./javascripts/head.min.js"></script>
+    <script src="./javascripts/main.js"></script>
 
-    <script>
-    window.translationsLoaded = false;
-    //window.templatesDone = false;
-
-    // Using i18next for 118n https://www.i18next.com
-    i18next.use(i18nextXHRBackend);
-    i18next.init({
-      'debug': true,
-      'lng': 'en',
-      'fallbackLng': 'en',
-      backend: {
-        loadPath: '/locales/{{lng}}.json'
-      }
-    }, function() {
-      jqueryI18next.init(i18next, $, {
-        optionsAttr: 'i18n-options',
-        useOptionsAttr: true
-      });
-      window.translationsLoaded = true;
-    });
-
-    </script>
-
-    <script id="section-template" type="text/html">
-      <section class="section {{bgClass}}">
-        <h2 class="section-title" data-i18n="{{i18n.title}}">{{title}}</h2>
-        <div class="section-content">
-          {{{ content }}}
-        </div>
-      </section>
-    </script>
-
-    <script id="asset-template" type="text/html">
-      <div class="asset {{class}}">
-        {{#i18n.locale}}
-          <span class="image" style="background-image: url({{image}}{{i18n.locale}}@4x.jpg)"></span>
-        {{/i18n.locale}}
-        {{^i18n.locale}}
-          <span class="image" style="background-image: url({{image}})"></span>
-        {{/i18n.locale}}
-        {{#i18n.title}}
-          <h2 class="asset-title" data-i18n="{{i18n.title}}">{{title}}</h2>
-        {{/i18n.title}}
-        {{^i18n.title}}
-          <h2 class="asset-title">{{title}}</h2>
-        {{/i18n.title}}
-      </div>
-    </script>
-
-    <script id="bundle-template" type="text/html">
-      <div class="asset bundle {{class}}">
-        {{#i18n.locale}}
-          <span class="image" style="background-image: url({{image}}{{i18n.locale}}@4x.jpg)"></span>
-        {{/i18n.locale}}
-        {{^i18n.locale}}
-          <span class="image" style="background-image: url({{image}})"></span>
-        {{/i18n.locale}}
-        <h2 class="asset-title">{{title}}</h2>
-        <p class="asset-pricing">
-          <span class="asset-number-of-apps">
-            {{numberOfApps}} 
-            <span data-i18n="app" data-i18n-options='{ "count": {{numberOfApps}} }'>apps</span>
-          </span>
-          <span class="asset-price">
-            <span data-i18n="currencySymbol">$</span>
-            {{price}}
-          </span>
-        </p>
-        {{#childImage}}
-          <span class="child-image" style="background-image: url({{childImage}})"></span>
-        {{/childImage}}
-      </div>
-    </script>
-
-    <script>
-      function rendertoHTML(template, settings) {
-        return Mustache.render(template, settings);
-      }
-      function renderArrayToHTML(template, items) {
-        var html = '';
-        $(items).each(function(index, item) {
-          html += rendertoHTML(template, item);
-        });
-        return html;
-      }
-      function render(template, settings, selector) {
-        var html = Mustache.render(template, settings);
-        $(selector).html(html);
-      }
-    </script>
   </head>
 <script>
 /*
 Notes
-- Set up a general-purpose "renderTemplate" helper function
-- Define the template (inline for now)
-- Move the templates into the templates folder and load them into variables to use
-- Define each component as a set of JS settings, including template name
-- Render each template
-- Include instructions for usage
+TODO:
 
-Components
-- Sections - solid background / not
-- Section title
-- App icons
-- Block assets
--- Asset title
--- Brick
--- Book
--- Icon
--- Bundle
+* Move templates into their own folder
+* Set up other components
+* Add in modifiers
+* Add in animations
+
+Other components to build:
+
+x- Sections with multiple heading / icons
+x- Page title logo
+- Full-bleed banner
+- 50% banner
+- 2/3 banner
+- 1/2 banner
+- Text container - e.g. terms and conditions
+
 
 - Modifications
 -- Free / New badge
--- Animated background
+-- Animated background (sprite)
 -- Other animation types
+
+- Make page content only show after the translations have finished
 
 - Show-on-scroll animations
 -- Play-once
@@ -148,66 +61,52 @@ Components
             <h2>Sections</h2>
 
             <div class="example">
-              <div id="section-1"></div>
-              <script>
-                var settings = {
-                  bgClass: 'bg-white',
-                  title: 'White background section',
-                  content: '',
-                  i18n: {
-                    title: 'section1Title'
-                  }
-                }
-                var template = $('#section-template').html();
-                render(template, settings, '#section-1');
-              </script>
+
+<div id="section-1" class="to-render" data-template="section-template" data-settings='{
+  "bgClass": "bg-white",
+  "title": "White background section",
+  "content": "",
+  "i18n": {
+    "title": "section1Title"
+  }
+}'></div>
+
               <div class="example-description">
                 <h3 class="toggle-usage">Usage</h3>
-                <div class="usage hidden">
-<pre><code>var settings = {
-  bgClass: 'bg-white',
-  title: 'Placeholder text',
-  content: '',
-  i18n: {
-    title: 'section1Title'
-  }
-}
-var template = $('#section-template').html();
-render(template, settings, '#section-1');
-</code></pre>
-                </div>
+                <div class="usage hidden"></div>
               </div>
             </div>
 
             <div class="example">
-              <div id="section-2"></div>
-              <script>
-                var settings = {
-                  bgClass: 'bg-none',
-                  title: 'Transparent background section',
-                  content: '',
-                  i18n: {
-                    title: 'section2Title'
-                  }
-                }
-                var template = $('#section-template').html();
-                render(template, settings, '#section-2');
-              </script>
+<div id="section-2" class="to-render" data-template="section-template" data-settings='{
+  "bgClass": "bg-none",
+  "title": "Transparent background section",
+  "content": "",
+  "i18n": {
+    "title": "section2Title"
+  }
+}'></div>
               <div class="example-description">
                 <h3 class="toggle-usage">Usage</h3>
-                <div class="usage hidden">
-<pre><code>var settings = {
-  bgClass: 'bg-none',
-  title: 'Placeholder text',
-  content: '',
-  i18n: {
-    title: 'section2Title'
-  }
-}
-var template = $('#section-template').html();
-render(template, settings, '#section-2');
-</code></pre>
-                </div>
+                <div class="usage hidden"></div>
+              </div>
+            </div>
+
+          </article>
+
+          <article class="page-title-example">
+            <h2>Page title image</h2>
+            <div class="example">
+
+<div id="page-title-example" class="to-render" data-template="page-title-template" data-settings='{
+  "image": "./images/example/storytoys.png",
+  "height": 78,
+  "width": 320
+}'></div>
+
+              <div class="example-description">
+                <h3 class="toggle-usage">Usage</h3>
+                <div class="usage hidden"></div>
               </div>
             </div>
 
@@ -217,276 +116,230 @@ render(template, settings, '#section-2');
             <h2>Assets</h2>
 
             <div class="example">
-              <div id="asset-1"></div>
-              <script>
-                var settings = {
-                  class: 'brick',
-                  title: 'Example brick',
-                  image: './images/bricks/mgc_brick_',
-                  i18n: {
-                    locale: 'en',
-                    title: 'asset1Title'
-                  }
-                }
-                var template = $('#asset-template').html();
-                render(template, settings, '#asset-1');
-              </script>
+
+<div id="asset-1" class="to-render" data-template="asset-template" data-settings='{
+  "class": "brick",
+  "title": "Example brick",
+  "image": "./images/bricks/mgc_brick_",
+  "i18n": {
+    "locale": "en",
+    "title": "asset1Title"
+  }
+}'></div>
+
               <div class="example-description">
                 <h3 class="toggle-usage">Usage</h3>
-                <div class="usage hidden">
-<pre><code>var settings = {
-  class: 'brick',
-  title: 'Example brick',
-  image: './images/bricks/mgc_brick_',
-  i18n: {
-    locale: 'en',
-    title: 'asset1Title'
-  }
-}
-var template = $('#asset-template').html();
-render(template, settings, '#asset-1');
-</code></pre>
-                </div>
+                <div class="usage hidden"></div>
               </div>
             </div>
 
             <div class="example">
-              <div id="asset-2"></div>
-              <script>
-                var settings = {
-                  class: 'book',
-                  title: 'Placeholder text',
-                  image: '"./images/icons/Apps/ST/Dino Dog.jpg"',
-                  // If image cannot be localised, leave off the i18n.locale part
-                  i18n: {
-                    //locale: 'en',
-                    title: 'asset2Title'
-                  }
-                }
-                var template = $('#asset-template').html();
-                render(template, settings, '#asset-2');
-              </script>
+
+
+<div id="asset-2" class="to-render" data-template="asset-template" data-settings='{
+  "class": "book",
+  "title": "Placeholder text",
+  "image": "./images/icons/Apps/ST/Dino Dog.jpg",
+  "i18n": { 
+    "title": "asset2Title"
+  }
+}'></div>
               <div class="example-description">
                 <h3 class="toggle-usage">Usage</h3>
-                <div class="usage hidden">
-<pre><code>var settings = {
-  class: 'book',
-  title: 'Placeholder text',
-  image: './images/...jpg',
-  // If image cannot be localised, leave off the i18n.locale part
-  i18n: {
-    //locale: 'en',
-    title: 'asset2Title'
-  }
-}
-var template = $('#asset-template').html();
-render(template, settings, '#asset-2');
-</code></pre>
-                </div>
+                <div class="usage hidden"></div>
               </div>
             </div>
 
             <div class="example">
-              <div id="asset-3"></div>
-              <script>
-                var settings = {
-                  class: 'icon',
-                  title: 'Example icon',
-                  image: '"./images/icons/Apps/ST/Dino Dog.jpg"',
-                  i18n: {
-                    title: 'asset3Title'
-                  }
-                }
-                var template = $('#asset-template').html();
-                render(template, settings, '#asset-3');
-              </script>
+
+<div id="asset-3" class="to-render" data-template="asset-template" data-settings='{
+  "class": "icon",
+  "title": "Placeholder text",
+  "image": "./images/icons/Apps/ST/Dino Dog.jpg",
+  "i18n": { 
+    "title": "asset3Title"
+  }
+}'></div>
+
               <div class="example-description">
                 <h3 class="toggle-usage">Usage</h3>
-                <div class="usage hidden">
-<pre><code>var settings = {
-  class: 'icon',
-  title: 'Example icon',
-  image: './images/...jpg',
-  i18n: {
-    title: 'asset3Title'
-  }
-}
-var template = $('#asset-template').html();
-render(template, settings, '#asset-3');
-</code></pre>
-                </div>
+                <div class="usage hidden"></div>
               </div>
             </div>
 
             <div class="example">
-              <div id="asset-4"></div>
-              <script>
-                var settings = {
-                  class: 'bundle no-child',
-                  title: 'Example bundle',
-                  image: './images/bricks/mgc_brick_',
-                  numberOfApps: 4,
-                  price: '0.99',
-                  i18n: {
-                    locale: 'en',
-                    title: 'asset4Title'
-                  }
 
-                }
-                var template = $('#bundle-template').html();
-                render(template, settings, '#asset-4');
+<div id="asset-4" class="to-render" data-template="bundle-template" data-settings='{
+  "class": "bundle no-child",
+  "title": "Example bundle",
+  "image": "./images/bricks/mgc_brick_",
+  "numberOfApps": 4,
+  "price": "0.99",
+  "i18n": {
+    "locale": "en",
+    "title": "asset4Title"
+  }
+}'></div>
+
               </script>
               <div class="example-description">
                 <h3 class="toggle-usage">Usage</h3>
-                <div class="usage hidden">
-<pre><code>var settings = {
-  class: 'bundle no-child',
-  title: 'Example bundle',
-  image: './images/bricks/mgc_brick_en@4x.jpg',
-  numberOfApps: 4,
-  price: '0.99',
-  i18n: {
-    locale: 'en',
-    title: 'asset4Title'
-  }
-}
-var template = $('#bundle-template').html();
-render(template, settings, '#asset-4');
-</code></pre>
-                </div>
+                <div class="usage hidden"></div>
               </div>
             </div>
 
             <div class="example">
-              <div id="asset-5"></div>
-              <script>
-                var settings = {
-                  class: 'bundle with-child',
-                  title: 'Example bundle',
-                  image: './images/bricks/mgc_brick_',
-                  childImage: '"./images/icons/Apps/ST/Dino Dog.jpg"',
-                  numberOfApps: 4,
-                  price: '0.99',
-                  i18n: {
-                    locale: 'en',
-                    title: 'asset5Title'
-                  }
-                }
-                var template = $('#bundle-template').html();
-                render(template, settings, '#asset-5');
-              </script>
+
+<div id="asset-5" class="to-render" data-template="bundle-template" data-settings='{
+  "class": "bundle with-child",
+  "title": "Example bundle",
+  "image": "./images/bricks/mgc_brick_",
+  "childImage": "./images/icons/Apps/ST/Dino Dog.jpg",
+  "numberOfApps": 4,
+  "price": "0.99",
+  "i18n": {
+    "locale": "en",
+    "title": "asset5Title"
+  }
+}'></div> 
+
               <div class="example-description">
                 <h3 class="toggle-usage">Usage</h3>
-                <div class="usage hidden">
-<pre><code>var settings = {
-  class: 'bundle with-child',
-  title: 'Example bundle',
-  image: './images/bricks/mgc_brick_en@4x.jpg',
-  childImage: './images/icons/Apps/ST/Dino Dog.jpg',
-  numberOfApps: 4,
-  price: '0.99',
-  i18n: {
-    title: 'asset5Title'
-  }
-}
-var template = $('#bundle-template').html();
-render(template, settings, '#asset-5');
-</code></pre>
-                </div>
+                <div class="usage hidden"></div>
               </div>
             </div>
 
           </article>
 
           <article class="assets-in-sections">
-            <h2>Assets in sections</h2>
+
+            <h2>Putting assets into a section</h2>
+
+<div id="section-inline" class="to-render" data-template="section-template" data-settings='{
+  "bgClass": "bg-white",
+  "title": "White background section",
+  "content": "",
+  "i18n": {
+    "title": "sectionInlineTitle"
+  }
+}'>
+  
+<div id="inline-1" class="to-render" data-template="asset-template" data-settings='{
+  "class": "icon",
+  "title": "Placeholder text",
+  "image": "./images/icons/Apps/ST/Dino Dog.jpg",
+  "i18n": { 
+    "title": "asset3Title"
+  }
+}'></div>
+
+<div id="inline-2" class="to-render" data-template="asset-template" data-settings='{
+  "class": "icon",
+  "title": "Placeholder text",
+  "image": "./images/icons/Apps/ST/Dino Dog.jpg",
+  "i18n": { 
+    "title": "asset3Title"
+  }
+}'></div>
+
+<div id="inline-3" class="to-render" data-template="asset-template" data-settings='{
+  "class": "icon",
+  "title": "Placeholder text",
+  "image": "./images/icons/Apps/ST/Dino Dog.jpg",
+  "i18n": { 
+    "title": "asset3Title"
+  }
+}'></div>
+
+<div id="inline-4" class="to-render" data-template="asset-template" data-settings='{
+  "class": "icon",
+  "title": "Placeholder text",
+  "image": "./images/icons/Apps/ST/Dino Dog.jpg",
+  "i18n": { 
+    "title": "asset3Title"
+  }
+}'></div>
+
+<div id="inline-5" class="to-render" data-template="asset-template" data-settings='{
+  "class": "icon",
+  "title": "Placeholder text",
+  "image": "./images/icons/Apps/ST/Dino Dog.jpg",
+  "i18n": { 
+    "title": "asset3Title"
+  }
+}'></div>
+
+</div>
+
+            <h2>Groups with titles - custom template</h2>
 
             <div class="example">
-              <div id="mixed-1"></div>
-              <script>
-                var assets = [
-                  {
-                    class: 'icon',
-                    title: 'Example icon',
-                    image: '"./images/icons/Apps/ST/Dino Dog.jpg"'
-                  },
-                  {
-                    class: 'icon',
-                    title: 'Example icon',
-                    image: '"./images/icons/Apps/ST/Dino Dog.jpg"'
-                  },
-                  {
-                    class: 'icon',
-                    title: 'Example icon',
-                    image: '"./images/icons/Apps/ST/Dino Dog.jpg"'
-                  },
-                  {
-                    class: 'icon',
-                    title: 'Example icon',
-                    image: '"./images/icons/Apps/ST/Dino Dog.jpg"'
-                  },
-                  {
-                    class: 'icon',
-                    title: 'Example icon',
-                    image: '"./images/icons/Apps/ST/Dino Dog.jpg"'
-                  }
-                ]
-                var template = $('#asset-template').html();
-                var assetHTML = renderArrayToHTML(template, assets);
+<div 
+  id="mixed-1"
+  class="to-render"
+  data-template="section-template"
+  data-child-template="asset-group-template"
+  data-settings='{
+    "bgClass": "bg-white"
+  }'
+  data-groups='[{
+    "title": "First group in section",
+    "titlei18nKey": "firstGroupTitle",
+    "items": [
+      {
+        "class": "icon",
+        "title": "Example icon",
+        "image": "./images/icons/Apps/ST/Dino Dog.jpg"
+      }, {
+        "class": "icon",
+        "title": "Example icon",
+        "image": "./images/icons/Apps/ST/Dino Dog.jpg"
+      }, {
+        "class": "icon",
+        "title": "Example icon",
+        "image": "./images/icons/Apps/ST/Dino Dog.jpg"
+      }, {
+        "class": "icon",
+        "title": "Example icon",
+        "image": "./images/icons/Apps/ST/Dino Dog.jpg"
+      }, {
+        "class": "icon",
+        "title": "Example icon",
+        "image": "./images/icons/Apps/ST/Dino Dog.jpg"
+      }
+    ]
+  }, {
+    "title": "Second group in section",
+    "titlei18nKey": "secondGroupTitle",
+    "items": [
+      {
+        "class": "icon",
+        "title": "Example icon",
+        "image": "./images/icons/Apps/ST/Dino Dog.jpg"
+      }, {
+        "class": "icon",
+        "title": "Example icon",
+        "image": "./images/icons/Apps/ST/Dino Dog.jpg"
+      }, {
+        "class": "icon",
+        "title": "Example icon",
+        "image": "./images/icons/Apps/ST/Dino Dog.jpg"
+      }, {
+        "class": "icon",
+        "title": "Example icon",
+        "image": "./images/icons/Apps/ST/Dino Dog.jpg"
+      }, {
+        "class": "icon",
+        "title": "Example icon",
+        "image": "./images/icons/Apps/ST/Dino Dog.jpg"
+      }
+    ]
+  }]'
+></div>
 
-                var settings = {
-                  bgClass: 'bg-white',
-                  title: 'Section containing assets',
-                  content: assetHTML,
-                  i18n: {
-                    title: 'section3Title'
-                  }
-                }
-                var template = $('#section-template').html();
-                render(template, settings, '#mixed-1');
-              </script>
               <div class="example-description">
                 <h3 class="toggle-usage">Usage</h3>
-                <div class="usage hidden">
-<pre><code>var assets = [
-  {
-    class: 'icon',
-    title: 'Example icon',
-    image: '"./images/icons/Apps/ST/Dino Dog.jpg"'
-  },
-  {
-    class: 'icon',
-    title: 'Example icon',
-    image: '"./images/icons/Apps/ST/Dino Dog.jpg"'
-  },
-  {
-    class: 'icon',
-    title: 'Example icon',
-    image: '"./images/icons/Apps/ST/Dino Dog.jpg"'
-  },
-  {
-    class: 'icon',
-    title: 'Example icon',
-    image: '"./images/icons/Apps/ST/Dino Dog.jpg"'
-  },
-  {
-    class: 'icon',
-    title: 'Example icon',
-    image: '"./images/icons/Apps/ST/Dino Dog.jpg"'
-  }
-]
-var template = $('#asset-template').html();
-var assetHTML = renderArrayToHTML(template, assets);
-
-var settings = {
-  bgClass: 'bg-white',
-  title: 'Example with icons',
-  content: assetHTML
-}
-var template = $('#section-template').html();
-render(template, settings, '#mixed-1');
-</code></pre>
-                </div>
+                <div class="usage hidden"></div>
               </div>
             </div>
 
@@ -496,17 +349,11 @@ render(template, settings, '#mixed-1');
     </div>
 
     <script>
-      // Styleguide logic - don't include in the final index 
-      $('.toggle-usage').click(function() {
-        $(this).toggleClass('hide');
-        $(this).parent().find('.usage').toggleClass('hidden');
-      });
-
       // Lastly, run the localization on the page content
       // Use requestAnimationFrame to poll until page is ready to be localised
       var check = window.requestAnimationFrame;
       function poll() {
-        if (window.translationsLoaded) {
+        if (window.translationsLoaded && window.templatesDone) {
           $('body').localize();
         } else {
           check(poll);
@@ -514,6 +361,22 @@ render(template, settings, '#mixed-1');
       }
       // Call the poll for the first time
       poll();
+
+
+
+      // Styleguide logic - don't include in the final index 
+      $('.toggle-usage').click(function() {
+        $(this).toggleClass('hide');
+        $(this).parent().find('.usage').toggleClass('hidden');
+      });
+
+      // Render the usage instructions
+      $('.to-render').each(function(index, item) {
+        // Generate the usage section
+        var exampleHTML = escapeHTML(document.getHTML(item, false).replace(/&quot;/g, '"'));
+        var newCodeBlock = '<pre><code>'+ exampleHTML +'</code></pre>';
+        $(item).parent().find('.usage').html(newCodeBlock);
+      });
     </script>
   </body>
 </html>

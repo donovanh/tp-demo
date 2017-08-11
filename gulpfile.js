@@ -25,11 +25,6 @@ gulp.task("html", function() {
     .pipe(gulp.dest("build/"));
 });
 
-gulp.task("javascript", function() {
-  return gulp.src(["./src/*.html", "./src/**/*.html"])
-    .pipe(gulp.dest("build/"));
-});
-
 gulp.task("images", function() {
   return gulp.src(["./src/**/*.jpg", "./src/**/*.png", "./src/**/*.gif", "./src/**/*.svg"])
     .pipe(gulp.dest("build/"));

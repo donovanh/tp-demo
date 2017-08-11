@@ -49,8 +49,15 @@ code {
 }
 
 .assets .example {
+  background: rgba(255,255,255,.2);
+  border-radius: .5em;
+  width: 100%;
+  padding: 1em;
+}
+
+.page-title-example .example {
+  width: 100%;
   background: #fff;
   border-radius: .5em;
-  width: 49%;
   padding: 1em;
 }
