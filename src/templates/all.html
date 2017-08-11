@@ -19,20 +19,28 @@
   </div>
 </script>
 
+<script id="footer-link-template" type="text/html">
+  <div class="page-footer">
+    <a href="{{target}}" data-i18n="{{i18n.linkTextKey}}">{{linkText}}</a>
+  </div>
+</script>
+
 <script id="asset-template" type="text/html">
   <div class="asset {{class}}">
-    {{#i18n.locale}}
-      <span class="image" style="background-image: url('{{image}}{{i18n.locale}}@4x.jpg')"></span>
-    {{/i18n.locale}}
-    {{^i18n.locale}}
-      <span class="image" style="background-image: url('{{image}}')"></span>
-    {{/i18n.locale}}
-    {{#i18n.title}}
-      <h2 class="asset-title" data-i18n="{{i18n.title}}">{{title}}</h2>
-    {{/i18n.title}}
-    {{^i18n.title}}
-      <h2 class="asset-title">{{title}}</h2>
-    {{/i18n.title}}
+    <a href="{{target}}">
+      {{#i18n.locale}}
+        <span class="image" style="background-image: url('{{image}}{{i18n.locale}}@4x.jpg')"></span>
+      {{/i18n.locale}}
+      {{^i18n.locale}}
+        <span class="image" style="background-image: url('{{image}}')"></span>
+      {{/i18n.locale}}
+      {{#i18n.title}}
+        <h2 class="asset-title" data-i18n="{{i18n.title}}">{{title}}</h2>
+      {{/i18n.title}}
+      {{^i18n.title}}
+        <h2 class="asset-title">{{title}}</h2>
+      {{/i18n.title}}
+    </a>
   </div>
 </script>
 
@@ -42,18 +50,20 @@
     <div class="section-content">
       {{#items}}
         <div class="asset {{class}}">
-          {{#i18n.locale}}
-            <span class="image" style="background-image: url('{{image}}{{i18n.locale}}@4x.jpg')"></span>
-          {{/i18n.locale}}
-          {{^i18n.locale}}
-            <span class="image" style="background-image: url('{{image}}')"></span>
-          {{/i18n.locale}}
-          {{#i18n.title}}
-            <h2 class="asset-title" data-i18n="{{i18n.title}}">{{title}}</h2>
-          {{/i18n.title}}
-          {{^i18n.title}}
-            <h2 class="asset-title">{{title}}</h2>
-          {{/i18n.title}}
+          <a href="{{target}}">
+            {{#i18n.locale}}
+              <span class="image" style="background-image: url('{{image}}{{i18n.locale}}@4x.jpg')"></span>
+            {{/i18n.locale}}
+            {{^i18n.locale}}
+              <span class="image" style="background-image: url('{{image}}')"></span>
+            {{/i18n.locale}}
+            {{#i18n.title}}
+              <h2 class="asset-title" data-i18n="{{i18n.title}}">{{title}}</h2>
+            {{/i18n.title}}
+            {{^i18n.title}}
+              <h2 class="asset-title">{{title}}</h2>
+            {{/i18n.title}}
+          </a>
         </div>
       {{/items}}
     </div>
@@ -62,24 +72,49 @@
 
 <script id="bundle-template" type="text/html">
   <div class="asset bundle {{class}}">
-    {{#i18n.locale}}
-      <span class="image" style="background-image: url('{{image}}{{i18n.locale}}@4x.jpg')"></span>
-    {{/i18n.locale}}
-    {{^i18n.locale}}
-      <span class="image" style="background-image: url('{{image}}')"></span>
-    {{/i18n.locale}}
-    <h2 class="asset-title">{{title}}</h2>
-    <p class="asset-pricing">
-      <span class="asset-number-of-apps">
-        {{numberOfApps}} 
-        <span data-i18n="app" data-i18n-options='{ "count": {{numberOfApps}} }'>apps</span>
-      </span>
-      <span class="asset-price">
-        <span data-i18n="currencySymbol">$</span>{{price}}
-      </span>
-    </p>
-    {{#childImage}}
-      <span class="child-image" style="background-image: url('{{childImage}}')"></span>
-    {{/childImage}}
+    <a href="{{target}}">
+      {{#i18n.locale}}
+        <span class="image" style="background-image: url('{{image}}{{i18n.locale}}@4x.jpg')"></span>
+      {{/i18n.locale}}
+      {{^i18n.locale}}
+        <span class="image" style="background-image: url('{{image}}')"></span>
+      {{/i18n.locale}}
+      <h2 class="asset-title">{{title}}</h2>
+      <p class="asset-pricing">
+        <span class="asset-number-of-apps">
+          {{numberOfApps}} 
+          <span data-i18n="app" data-i18n-options='{ "count": {{numberOfApps}} }'>apps</span>
+        </span>
+        <span class="asset-price">
+          <span data-i18n="currencySymbol">$</span>{{price}}
+        </span>
+      </p>
+      {{#childImage}}
+        <span class="child-image" style="background-image: url('{{childImage}}')"></span>
+      {{/childImage}}
+    </a>
   </div>
 </script>
+
+<script id="banner-template" type="text/html">
+  <div class="banner-wrapper">
+    <div class="banner {{class}}">
+      <a href="{{target}}">
+        {{#i18n.locale}}
+         <img src="{{image}}{{i18n.locale}}@4x.jpg">
+        {{/i18n.locale}}
+        {{^i18n.locale}}
+          <img src="{{image}}">
+        {{/i18n.locale}}
+        {{#title}}
+          <h3 class="banner-title">{{title}}</h3>
+        {{/title}}
+      </a>
+    </div>
+    {{#subtitle}}
+      <h3 class="banner-subtitle">{{subtitle}}</h3>
+    {{/subtitle}}
+  </div>
+</script>
+
+

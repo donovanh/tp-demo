@@ -4,7 +4,7 @@ window.templatesDone = false;
 // Init and load the translations file
 i18next.use(i18nextXHRBackend);
 i18next.init({
-  'debug': true,
+  'debug': false,
   'lng': 'en',
   'fallbackLng': 'en',
   backend: {
@@ -29,6 +29,16 @@ $.get('templates/all.html', function(templateHTML) {
     return templates;
   }, {});
 
+  renderAll(templates);
+  if ($('.to-render').length) {
+    renderAll(templates);
+  }
+
+  window.templatesDone = true;
+
+});
+
+function renderAll(templates) {
   $('.to-render').each(function(index, item) {
     // If it's a section containing groups, it will have a child-template
     if ($(item).attr('data-child-template') && $(item).attr('data-groups')) {
@@ -44,12 +54,12 @@ $.get('templates/all.html', function(templateHTML) {
     if (content) {
       settings.content = content;
     }
-    settings.inlineContent = $(item).html();
-    render(template, settings, '#' + $(item).attr('id'));
-    window.templatesDone = true;
-  });
 
-});
+    settings.inlineContent = $(item).html();
+
+    render(template, settings, item);
+  });
+}
 
 // Essential helper functions
 
@@ -82,7 +92,8 @@ function renderArrayToHTML(template, items) {
   });
   return html;
 }
-function render(template, settings, selector) {
+function render(template, settings, item) {
   var html = Mustache.render(template, settings);
-  $(selector).html(html);
+  console.log(item);
+  $(item).replaceWith(html);
 }

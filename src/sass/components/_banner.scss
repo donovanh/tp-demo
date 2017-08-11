@@ -1,0 +1,50 @@
+.banners {
+  display: flex;
+}
+
+.banner {
+  border-radius: .5em;
+  overflow: hidden;
+  position: relative;
+
+  a {
+    text-decoration: none;
+  }
+
+  img {
+    width: 100%;
+  }
+
+  &:before {
+    content: "";
+    position: absolute;
+      top: 60%;
+      right: 0;
+      bottom: 0;
+      left: 0;
+    background: linear-gradient(to top, rgba(255,255,255,.8), rgba(255,255,255,0));
+  }
+
+  .banner-title {
+    position: absolute;
+      bottom: 1em;
+      left: 1em;
+    margin: 0;
+  }
+
+  &.full-width {
+    width: 100%;
+  }
+
+  &.half-width {
+    width: 50%;
+  }
+
+  &.two-thirds-width {
+    width: 65.9%;
+  }
+
+  &.third-width {
+    width: 32.9%;
+  }
+}

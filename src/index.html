@@ -25,13 +25,6 @@ TODO:
 * Add in animations
 
 Other components to build:
-
-x- Sections with multiple heading / icons
-x- Page title logo
-- Full-bleed banner
-- 50% banner
-- 2/3 banner
-- 1/2 banner
 - Text container - e.g. terms and conditions
 
 
@@ -118,6 +111,7 @@ x- Page title logo
             <div class="example">
 
 <div id="asset-1" class="to-render" data-template="asset-template" data-settings='{
+  "target": "#",
   "class": "brick",
   "title": "Example brick",
   "image": "./images/bricks/mgc_brick_",
@@ -137,6 +131,7 @@ x- Page title logo
 
 
 <div id="asset-2" class="to-render" data-template="asset-template" data-settings='{
+  "target": "#",
   "class": "book",
   "title": "Placeholder text",
   "image": "./images/icons/Apps/ST/Dino Dog.jpg",
@@ -153,6 +148,7 @@ x- Page title logo
             <div class="example">
 
 <div id="asset-3" class="to-render" data-template="asset-template" data-settings='{
+  "target": "#",
   "class": "icon",
   "title": "Placeholder text",
   "image": "./images/icons/Apps/ST/Dino Dog.jpg",
@@ -170,6 +166,7 @@ x- Page title logo
             <div class="example">
 
 <div id="asset-4" class="to-render" data-template="bundle-template" data-settings='{
+  "target": "#",
   "class": "bundle no-child",
   "title": "Example bundle",
   "image": "./images/bricks/mgc_brick_",
@@ -191,6 +188,7 @@ x- Page title logo
             <div class="example">
 
 <div id="asset-5" class="to-render" data-template="bundle-template" data-settings='{
+  "target": "#",
   "class": "bundle with-child",
   "title": "Example bundle",
   "image": "./images/bricks/mgc_brick_",
@@ -211,6 +209,93 @@ x- Page title logo
 
           </article>
 
+          <article class="example-banners">
+          <h2>Banners</h2>
+
+            <div class="example">
+
+<div id="banner-1" class="to-render" data-template="banner-template" data-settings='{
+  "target": "#",
+  "class": "full-width",
+  "title": "Full width banner",
+  "image": "./images/bricks/mgc_brick_",
+  "i18n": {
+    "locale": "en",
+    "title": "banner1Title"
+  }
+}'></div> 
+
+              <div class="example-description">
+                <h3 class="toggle-usage">Usage</h3>
+                <div class="usage hidden"></div>
+              </div>
+
+            </div>
+
+            <div class="example">
+
+<div id="banner-2" class="to-render" data-template="banner-template" data-settings='{
+  "target": "#",
+  "class": "half-width",
+  "title": "Half width banner",
+  "subtitle": "Subtitle text",
+  "image": "./images/bricks/mgc_brick_",
+  "i18n": {
+    "locale": "en",
+    "title": "banner2Title",
+    "subtitle": "banner2Subtitle"
+  }
+}'></div> 
+
+              <div class="example-description">
+                <h3 class="toggle-usage">Usage</h3>
+                <div class="usage hidden"></div>
+              </div>
+
+            </div>
+
+            <div class="example">
+
+<div id="banner-3" class="to-render" data-template="banner-template" data-settings='{
+  "target": "#",
+  "class": "two-thirds-width",
+  "title": "Two-thirds width banner",
+  "image": "./images/bricks/mgc_brick_",
+  "i18n": {
+    "locale": "en",
+    "title": "banner3Title"
+  }
+}'></div> 
+
+              <div class="example-description">
+                <h3 class="toggle-usage">Usage</h3>
+                <div class="usage hidden"></div>
+              </div>
+
+            </div>
+
+            <div class="example">
+
+<div id="banner-4" class="to-render" data-template="banner-template" data-settings='{
+  "target": "#",
+  "class": "third-width",
+  "title": "One-third width banner",
+  "image": "./images/bricks/mgc_brick_",
+  "i18n": {
+    "locale": "en",
+    "title": "banner3Title"
+  }
+}'></div> 
+
+              <div class="example-description">
+                <h3 class="toggle-usage">Usage</h3>
+                <div class="usage hidden"></div>
+              </div>
+
+            </div>
+
+          </article>
+
           <article class="assets-in-sections">
 
             <h2>Putting assets into a section</h2>
@@ -225,6 +310,7 @@ x- Page title logo
 }'>
   
 <div id="inline-1" class="to-render" data-template="asset-template" data-settings='{
+  "target": "#",
   "class": "icon",
   "title": "Placeholder text",
   "image": "./images/icons/Apps/ST/Dino Dog.jpg",
@@ -234,6 +320,7 @@ x- Page title logo
 }'></div>
 
 <div id="inline-2" class="to-render" data-template="asset-template" data-settings='{
+  "target": "#",
   "class": "icon",
   "title": "Placeholder text",
   "image": "./images/icons/Apps/ST/Dino Dog.jpg",
@@ -243,6 +330,7 @@ x- Page title logo
 }'></div>
 
 <div id="inline-3" class="to-render" data-template="asset-template" data-settings='{
+  "target": "#",
   "class": "icon",
   "title": "Placeholder text",
   "image": "./images/icons/Apps/ST/Dino Dog.jpg",
@@ -252,6 +340,7 @@ x- Page title logo
 }'></div>
 
 <div id="inline-4" class="to-render" data-template="asset-template" data-settings='{
+  "target": "#",
   "class": "icon",
   "title": "Placeholder text",
   "image": "./images/icons/Apps/ST/Dino Dog.jpg",
@@ -261,6 +350,7 @@ x- Page title logo
 }'></div>
 
 <div id="inline-5" class="to-render" data-template="asset-template" data-settings='{
+  "target": "#",
   "class": "icon",
   "title": "Placeholder text",
   "image": "./images/icons/Apps/ST/Dino Dog.jpg",
@@ -336,6 +426,29 @@ x- Page title logo
     ]
   }]'
 ></div>
+
+              <div class="example-description">
+                <h3 class="toggle-usage">Usage</h3>
+                <div class="usage hidden"></div>
+              </div>
+            </div>
+
+          </article>
+
+          <article>
+            <h2>Footer link</h2>
+
+            <div class="example">
+<div
+  class="to-render"
+  data-template="footer-link-template"
+  data-settings='{
+    "target": "#",
+    "linkText": "More from TouchPress",
+    "i18n": { 
+      "linkTextKey": "More from TouchPress"
+    }
+  }'></div>
 
               <div class="example-description">
                 <h3 class="toggle-usage">Usage</h3>

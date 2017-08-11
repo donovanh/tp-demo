@@ -2,8 +2,10 @@
 
 /* Basics */
 @import "base";
+@import "grid";
 
 /* Components */
-@import "components/section";
 @import "components/asset";
+@import "components/banner";
 @import "components/page-title";
+@import "components/section";
