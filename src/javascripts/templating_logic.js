@@ -19,7 +19,7 @@ i18next.init({
 });
 
 // Get and render the templates
-$.get('templates/all.html', function(templateHTML) {
+$.get('templates/all.mst', function(templateHTML) {
   // With templates loaded, display each of the sections
   var templatesArray = $.parseHTML(templateHTML);
   var templates = templatesArray.reduce(function(templates, item) {
@@ -94,6 +94,5 @@ function renderArrayToHTML(template, items) {
 }
 function render(template, settings, item) {
   var html = Mustache.render(template, settings);
-  console.log(item);
   $(item).replaceWith(html);
 }

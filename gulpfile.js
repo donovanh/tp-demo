@@ -6,22 +6,41 @@ var gulp = require("gulp"),
     clean = require("gulp-clean"),
     concat = require("gulp-concat"),
     rename = require("gulp-rename"),
+    path = require('path'),
     uglify = require("gulp-uglify"),
     autoprefixer = require("gulp-autoprefixer"),
     sourcemaps = require('gulp-sourcemaps'),
-    plumber = require('gulp-plumber');
+    plumber = require('gulp-plumber'),
+    addsrc = require('gulp-add-src'),
+    zip = require('gulp-zip'),
+    forEach = require('gulp-foreach'),
+    flatten = require('gulp-flatten');
 
 gulp.dest(function(file){
   return path.join(build_dir, path.dirname(file.path));
 });
 
 gulp.task("clean", function () {
-  return gulp.src('./build', {read: false})
+  gulp.src('./build', {read: false})
+    .pipe(clean());
+  gulp.src('./output', {read: false})
+    .pipe(clean());
+  gulp.src('./zips', {read: false})
+    .pipe(clean());
+});
+
+gulp.task("clean:output", function () {
+  return gulp.src('./output', {read: false})
+    .pipe(clean());
+});
+
+gulp.task("clean:zips", function () {
+  return gulp.src('./zips', {read: false})
     .pipe(clean());
 });
 
 gulp.task("html", function() {
-  return gulp.src(["./src/*.html", "./src/**/*.html"])
+  return gulp.src(["./src/pages/*.html"])
     .pipe(gulp.dest("build/"));
 });
 
@@ -72,7 +91,8 @@ gulp.task("headjs", function() {
     "./node_modules/i18next-xhr-backend/dist/umd/i18nextXHRBackend.js",
     "./node_modules/jquery/dist/jquery.js",
     "./node_modules/jquery-i18next/dist/umd/jquery-i18next.js",
-    "./src/vendor/mustache.js"
+    "./src/vendor/mustache.js",
+    "./src/dev/environment.js" // Don't include this in the zipped build
   ];
   return gulp.src(scripts)
     .pipe(plumber())
@@ -106,6 +126,53 @@ gulp.task("browser-sync", ["html","css","js"], function() {
   });
 });
 
+gulp.task('make', function() {
+  return gulp.src('build/*.html')
+    .pipe(rename(function(file) {
+      file.dirname = path.join(file.dirname, file.basename);
+      file.basename = 'index';
+      file.extname = '.html';
+    }))
+    .pipe(gulp.dest('output/'))
+    .pipe(
+      forEach( (stream, file) => {
+      let fileName = file.relative.replace('/index.html', '');
+      addAssets(fileName);
+      return stream
+    }));
+});
+
+function addAssets(fileName) {
+  gulp.src('build/javascripts/**')
+    .pipe(gulp.dest('output/' + fileName + '/javascripts'));     
+  gulp.src('build/locales/**')
+    .pipe(gulp.dest('output/' + fileName + '/locales'));   
+  gulp.src('build/images/**')
+    .pipe(gulp.dest('output/' + fileName + '/images'));
+  gulp.src('build/stylesheets/**')
+    .pipe(gulp.dest('output/' + fileName + '/stylesheets')); 
+  gulp.src('build/templates/**')
+    .pipe(gulp.dest('output/' + fileName + '/templates')); 
+}
+
+function zipFolder(name) {
+  console.log('Zipping ', name);
+  gulp.src('output/' + name + '/**')
+    .pipe(zip(name + '.zip'))
+    .pipe(gulp.dest('zips'));
+}
+
+gulp.task('zip', ['clean:zips'], function() {
+  return gulp.src('output/**/*.html')
+    .pipe(forEach( (stream, file) => {
+      let fileName = file.relative.replace('/index.html', '');
+      zipFolder(fileName);
+      return stream;
+    }))
+});
+
+
+gulp.task("build", ["html","headjs","js","css","templates","images","fonts","locales","zips","video"])
 gulp.task("watch", function() {
   // Watch .html files
   gulp.watch("src/*.html", ["html", browserSync.reload]);
@@ -123,4 +190,4 @@ gulp.task("watch", function() {
   gulp.watch("src/**/*.webm", ["video"]);
 });
 
-gulp.task("default", ["html","headjs","js","css","templates","images","fonts","locales","browser-sync","zips","video","watch"]);
+gulp.task("default", ["build","browser-sync","watch"]);

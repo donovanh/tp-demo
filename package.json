@@ -8,22 +8,27 @@
     "browser-sync": "^2.17.0",
     "del": "^3.0.0",
     "gulp": "^3.8.11",
+    "gulp-add-src": "^0.2.0",
     "gulp-autoprefixer": "^4.0.0",
     "gulp-changed": "^3.1.0",
     "gulp-clean": "^0.3.2",
     "gulp-concat": "^2.6.1",
+    "gulp-flatten": "^0.3.1",
+    "gulp-foreach": "^0.1.0",
     "gulp-notify": "^3.0.0",
-    "gulp-rename": "^1.2.2",
     "gulp-sass": "^3.1.0",
     "gulp-size": "^2.1.0",
     "gulp-sourcemaps": "^2.6.0",
     "gulp-uglify": "^3.0.0",
+    "gulp-zip": "^4.0.0",
     "i18next": "^8.4.3",
     "i18next-xhr-backend": "^1.4.2",
     "jquery": "^3.2.1",
-    "jquery-i18next": "^1.2.0"
+    "jquery-i18next": "^1.2.0",
+    "path": "^0.12.7"
   },
   "devDependencies": {
-    "gulp-plumber": "^1.1.0"
+    "gulp-plumber": "^1.1.0",
+    "gulp-rename": "^1.2.2"
   }
 }
