@@ -32,7 +32,7 @@
         <span class="image" style="background-image: url('{{image}}{{i18n.locale}}@4x.jpg')"></span>
       {{/i18n.locale}}
       {{^i18n.locale}}
-        <span class="image" style="background-image: url('{{image}}')"></span>
+        <span class="image" style="background-image: url(`{{image}}`)"></span>
       {{/i18n.locale}}
       {{#i18n.title}}
         <h2 class="asset-title" data-i18n="{{i18n.title}}">{{title}}</h2>

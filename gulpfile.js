@@ -74,6 +74,11 @@ gulp.task("templates", function() {
     .pipe(gulp.dest("build/templates/"));
 });
 
+gulp.task("data", function() {
+  return gulp.src(["./src/data/**"])
+    .pipe(gulp.dest("build/data/"));
+});
+
 gulp.task("css", function () {
   return gulp.src('./src/sass/**/*.scss')
     .pipe(plumber())
@@ -91,8 +96,7 @@ gulp.task("headjs", function() {
     "./node_modules/i18next-xhr-backend/dist/umd/i18nextXHRBackend.js",
     "./node_modules/jquery/dist/jquery.js",
     "./node_modules/jquery-i18next/dist/umd/jquery-i18next.js",
-    "./src/vendor/mustache.js",
-    "./src/dev/environment.js" // Don't include this in the zipped build
+    "./src/vendor/mustache.js"
   ];
   return gulp.src(scripts)
     .pipe(plumber())
@@ -172,7 +176,7 @@ gulp.task('zip', ['clean:zips'], function() {
 });
 
 
-gulp.task("build", ["html","headjs","js","css","templates","images","fonts","locales","zips","video"])
+gulp.task("build", ["html","headjs","js","css","templates","images","fonts","locales","zips","video","data"])
 gulp.task("watch", function() {
   // Watch .html files
   gulp.watch("src/*.html", ["html", browserSync.reload]);
@@ -181,6 +185,7 @@ gulp.task("watch", function() {
   gulp.watch("src/**/*.js", ["js", browserSync.reload]);
   gulp.watch("src/locales/**/*.json", ["locales", browserSync.reload]);
   gulp.watch("src/templates/**/*.mst", ["templates", browserSync.reload]);
+  gulp.watch("src/data/**", ["data", browserSync.reload]);
   gulp.watch("src/**/*.jpg", ["images", browserSync.reload]);
   gulp.watch("src/**/*.png", ["images", browserSync.reload]);
   gulp.watch("src/**/*.svg", ["images", browserSync.reload]);

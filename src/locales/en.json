@@ -1,16 +1,25 @@
 {
-  "section1Title": "Section 1 Title",
-  "section2Title": "Section 2 Title",
-  "section3Title": "Section containing assets",
   "app": "{{number}} app",
   "app_plural": "{{number}} apps",
-  "asset1Title": "Example brick",
-  "asset2Title": "Example book",
-  "asset3Title": "Example icon",
-  "asset4Title": "Example bundle",
-  "asset5Title": "Example bundle with child icon",
   "currencySymbol": "£",
-  "firstGroupTitle": "First group in section",
-  "secondGroupTitle": "Second group in section",
-  "sectionInlineTitle": "Inline assets"
+  "appTitles": {
+    "LeonardosCat": "Leonardos Cat",
+    "SleepingBeauty": "Sleeping Beauty",
+    "PirateStrangebeard": "Pirate Strangebeard",
+    "SnowWhite": "Snow White",
+    "PussInBoots": "Puss In Boots",
+    "BeautyAndTheBeast": "Beauty And The Beast",
+    "ValentinesCollection": "Valentine's Collection",
+    "HanselAndGretel": "Hansel And Gretel",
+    "TheJungleBook": "The Jungle Book",
+    "TheLittleMermaid": "The Little Mermaid",
+    "HauntedHouse": "Haunted House",
+    "GrimmsVolume1": "Grimm's Volume 1",
+    "AwesomeCollection": "Awesome Collection",
+    "DinoDog": "Dino Dog",
+    "ShipAntics": "Ship Antics",
+    "JellyJumble": "Jelly Jumble",
+    "PuppyCuts": "Puppy Cuts",
+    "Thumbelina": "Thumbelina"
+  }
 }

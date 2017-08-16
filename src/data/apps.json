@@ -1,0 +1,291 @@
+{
+  "LeonardosCat": {
+    "titleKey": "LeonardosCat",
+    "icons": {
+      "brick": "",
+      "book": "",
+      "icon": "/images/icons/Apps/TPM/Leonardo.jpg"
+    },
+    "urls": {
+      "ios": "",
+      "google": "",
+      "web": ""
+    },
+    "categories": [
+      "new"
+    ]
+  },
+  "SleepingBeauty": {
+    "titleKey": "SleepingBeauty",
+    "icons": {
+      "brick": "",
+      "book": "",
+      "icon": "/images/icons/Apps/ST/Sleeping Beauty.jpg"
+    },
+    "urls": {
+      "ios": "",
+      "google": "",
+      "web": ""
+    },
+    "categories": [
+      "new"
+    ]
+  },
+  "PirateStrangebeard": {
+    "titleKey": "PirateStrangebeard",
+    "icons": {
+      "brick": "",
+      "book": "",
+      "icon": "/images/icons/Apps/ST/Pirate Princess.jpg"
+    },
+    "urls": {
+      "ios": "",
+      "google": "",
+      "web": ""
+    },
+    "categories": [
+      "new"
+    ]
+  },
+  "SnowWhite": {
+    "titleKey": "SnowWhite",
+    "icons": {
+      "brick": "",
+      "book": "",
+      "icon": "/images/icons/Apps/ST/Snow White.jpg"
+    },
+    "urls": {
+      "ios": "",
+      "google": "",
+      "web": ""
+    },
+    "categories": [
+     "sale"
+    ]
+  },
+  "PussInBoots": {
+    "titleKey": "PussInBoots",
+    "icons": {
+      "brick": "",
+      "book": "",
+      "icon": "/images/icons/Apps/ST/Puss in Boots.jpg"
+    },
+    "urls": {
+      "ios": "",
+      "google": "",
+      "web": ""
+    },
+    "categories": [
+      "sale"
+    ]
+  },
+  "BeautyAndTheBeast": {
+    "titleKey": "BeautyAndTheBeast",
+    "icons": {
+      "brick": "",
+      "book": "",
+      "icon": "/images/icons/Apps/ST/Beauty and the Beast.jpg"
+    },
+    "urls": {
+      "ios": "",
+      "google": "",
+      "web": ""
+    },
+    "categories": [
+      "new", "sale"
+    ]
+  },
+  "ValentinesCollection": {
+    "titleKey": "ValentinesCollection",
+    "icons": {
+      "brick": "",
+      "book": "",
+      "icon": "/images/icons/Apps/ST/Valentines Princess.jpg"
+    },
+    "urls": {
+      "ios": "",
+      "google": "",
+      "web": ""
+    },
+    "categories": [
+      "sale"
+    ]
+  },
+  "HanselAndGretel": {
+    "titleKey": "HanselAndGretel",
+    "icons": {
+      "brick": "",
+      "book": "",
+      "icon": "/images/icons/Apps/ST/Hansel and Gretel.jpg"
+    },
+    "urls": {
+      "ios": "",
+      "google": "",
+      "web": ""
+    },
+    "categories": [
+      "new"
+    ]
+  },
+  "TheJungleBook": {
+    "titleKey": "TheJungleBook",
+    "icons": {
+      "brick": "",
+      "book": "",
+      "icon": "/images/icons/Apps/ST/The Jungle Book.jpg"
+    },
+    "urls": {
+      "ios": "",
+      "google": "",
+      "web": ""
+    },
+    "categories": [
+      "sale"
+    ]
+  },
+  "TheLittleMermaid": {
+    "titleKey": "TheLittleMermaid",
+    "icons": {
+      "brick": "",
+      "book": "",
+      "icon": "/images/icons/Apps/ST/The Little Mermaid.jpg"
+    },
+    "urls": {
+      "ios": "",
+      "google": "",
+      "web": ""
+    },
+    "categories": [
+      "new"
+    ]
+  },
+  "HauntedHouse": {
+    "titleKey": "HauntedHouse",
+    "icons": {
+      "brick": "",
+      "book": "",
+      "icon": "/images/icons/Apps/ST/Haunted House.jpg"
+    },
+    "urls": {
+      "ios": "",
+      "google": "",
+      "web": ""
+    },
+    "categories": [
+      "sale"
+    ]
+  },
+  "GrimmsVolume1": {
+    "titleKey": "GrimmsVolume1",
+    "icons": {
+      "brick": "",
+      "book": "",
+      "icon": "/images/icons/Apps/ST/Grimms Collection.jpg"
+    },
+    "urls": {
+      "ios": "",
+      "google": "",
+      "web": ""
+    },
+    "categories": [
+      "new", "sale"
+    ]
+  },
+  "AwesomeCollection": {
+    "titleKey": "AwesomeCollection",
+    "icons": {
+      "brick": "",
+      "book": "",
+      "icon": "/images/icons/Apps/ST/Awesome Collection.jpg"
+    },
+    "urls": {
+      "ios": "",
+      "google": "",
+      "web": ""
+    },
+    "categories": [
+      "sale"
+    ]
+  },
+  "DinoDog": {
+    "titleKey": "DinoDog",
+    "icons": {
+      "brick": "",
+      "book": "",
+      "icon": "/images/icons/Apps/ST/Dino Dog.jpg"
+    },
+    "urls": {
+      "ios": "",
+      "google": "",
+      "web": ""
+    },
+    "categories": [
+      "sale"
+    ]
+  },
+  "ShipAntics": {
+    "titleKey": "ShipAntics",
+    "icons": {
+      "brick": "",
+      "book": "",
+      "icon": "/images/icons/Apps/ST/ShipAntics.jpg"
+    },
+    "urls": {
+      "ios": "",
+      "google": "",
+      "web": ""
+    },
+    "categories": [
+      "new"
+    ]
+  },
+  "JellyJumble": {
+    "titleKey": "JellyJumble",
+    "icons": {
+      "brick": "",
+      "book": "",
+      "icon": "/images/icons/Apps/ST/Jelly Jumble.jpg"
+    },
+    "urls": {
+      "ios": "",
+      "google": "",
+      "web": ""
+    },
+    "categories": [
+      "new"
+    ]
+  },
+  "PuppyCuts": {
+    "titleKey": "PuppyCuts",
+    "icons": {
+      "brick": "",
+      "book": "",
+      "icon": "/images/icons/Apps/ST/PuppyCuts.jpg"
+    },
+    "urls": {
+      "ios": "",
+      "google": "",
+      "web": ""
+    },
+    "categories": [
+      "sale"
+    ]
+  },
+  "Thumbelina": {
+    "titleKey": "Thumbelina",
+    "icons": {
+      "brick": "",
+      "book": "",
+      "icon": "/images/icons/Apps/ST/Thumbelina.jpg"
+    },
+    "urls": {
+      "ios": "",
+      "google": "",
+      "web": ""
+    },
+    "categories": [
+      "sale"
+    ]
+  }
+}
+
