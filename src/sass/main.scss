@@ -3,9 +3,12 @@
 /* Basics */
 @import "base";
 @import "grid";
+@import "mixins";
+@import "animations";
 
 /* Components */
 @import "components/asset";
 @import "components/banner";
 @import "components/page-title";
 @import "components/section";
+@import "components/page";

@@ -35,7 +35,8 @@
 
   &.icon {
     margin: 1em;
-    width: 144px;
+    min-width: 144px;
+    width: calc(20% - 2em);
 
     .image {
       background-size: cover;
@@ -49,6 +50,20 @@
     .asset-title {
       text-align: center;
       margin-top: .5em;
+    }
+    // Breakpoints to keep the icons evenly distributed
+    @media (max-width: 1215px) {
+      width: calc(25% - 2em);
+    }
+
+    @media (max-width: 981px) {
+      width: calc(33.333% - 2em);
+    }
+
+    @media (max-width: 702px) {
+      min-width: 100px;
+      margin: .6em;
+      width: calc(50% - 1.2em);
     }
 
   }

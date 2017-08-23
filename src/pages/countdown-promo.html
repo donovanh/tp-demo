@@ -1,0 +1,230 @@
+<!doctype html>
+<html lang="">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Countdown</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" href="./stylesheets/main.css">
+    <link rel="stylesheet" href="./stylesheets/special/countdown.css">
+    <style>
+      
+      @font-face {
+          font-family: 'Chewy';
+          src: url('./fonts/Chewy/chewy-webfont.woff2') format('woff2'),
+               url('./fonts/Chewy/chewy-webfont.woff') format('woff');
+          font-weight: normal;
+          font-style: normal;
+
+      }
+
+      *, body {
+        font-family: Chewy, sans-serif;
+      }
+
+      .image-bg {
+        border-radius: 18px;
+        border: 1px solid #00AEEE;
+        position: absolute;
+          top: 0;
+          right: 0;
+          bottom: 0;
+          left: 0;
+        background: #eee url(./images/in-app-messages/example.png) no-repeat center;
+        background-size: 132%;
+        height: 384px;
+        width: 606px;
+      }
+      .price {
+        position: absolute;
+        background: #6C82E0;
+        padding: 1em;
+        font-size: 22px;
+        border-radius: 1em;
+        box-shadow: 0 0 0 10px #fff;
+        bottom: 4%;
+        left: 50%;
+        transform: translateX(-50%);
+      }
+      .price span {
+        color: #fff !important;
+        letter-spacing: .8px;
+      }
+      .countdown-wrapper, .countdown {
+        background: #fff;
+        width: 120px;
+        height: 30px;
+        border-radius: 1em;
+
+      }
+      .number, .separator {
+        font-size: 20px;
+        line-height: 30px;
+      }
+    </style>
+    <script src="./javascripts/jquery.js"></script>
+    <script src="./javascripts/head.min.js"></script>
+    <script src="./javascripts/main.js"></script>
+  </head>
+  <body>
+    <div class="promo-container image-bg">
+
+      <div class="price">
+        <span class="only" data-i18n="only">Only</span>
+        <span data-i18n="currencySymbol">$</span><span id="js-price">2.99</span>
+      </div>
+
+      <!-- <div class="countdown-wrapper">
+        <section id="countdown-container" class="countdown-container">
+          <article id="js-countdown" class="countdown">
+            <section id="js-hours" class="number"></section>
+            <section id="js-separator" class="separator">:</section>
+            <section id="js-minutes" class="number"></section>
+            <section id="js-separator" class="separator">:</section>
+            <section id="js-seconds" class="number"></section>
+          </article>
+        </section>
+      </div> -->
+
+    </div>
+
+    
+    <script>
+    /* Spec
+      A square container, static background image and absolutely positioned price text
+      Also a dynamic countdown to a specific end time
+      - Maybe also - a dynamic "percent off" corner banner
+    */
+
+    $(function() {
+      // Countdown is hidden for now - uncomment the countdown HTML code above container to show it
+      return; // Remove this line to reactivate
+      if (!$('#js-countdown')) return;
+
+      var targetDate  = new Date(Date.UTC(2017, 3, 01));
+      var now   = new Date();
+
+      //window.days = daysBetween(now, targetDate);
+      var secondsLeft = secondsDifference(now, targetDate);
+      window.hours = Math.floor(secondsLeft / 60 / 60) + (daysBetween(now, targetDate) * 24);
+      secondsLeft = secondsLeft - (window.hours * 60 * 60);
+      window.minutes = Math.floor(secondsLeft / 60 );
+      secondsLeft = secondsLeft - (window.minutes * 60);
+      window.seconds = Math.floor(secondsLeft);
+
+      startCountdown();
+
+      var interval;
+
+      function daysBetween( date1, date2 ) {
+        //Get 1 day in milliseconds
+        var one_day=1000*60*60*24;
+
+        // Convert both dates to milliseconds
+        var date1_ms = date1.getTime();
+        var date2_ms = date2.getTime();
+
+        // Calculate the difference in milliseconds
+        var difference_ms = date2_ms - date1_ms;
+          
+        // Convert back to days and return
+        return Math.round(difference_ms/one_day); 
+      }
+
+      function secondsDifference( date1, date2 ) {
+        //Get 1 day in milliseconds
+        var one_day=1000*60*60*24;
+
+        // Convert both dates to milliseconds
+        var date1_ms = date1.getTime();
+        var date2_ms = date2.getTime();
+        var difference_ms = date2_ms - date1_ms;
+        var difference = difference_ms / one_day; 
+        var offset = difference - Math.floor(difference);
+        return offset * (60*60*24);
+      }
+
+
+
+      function startCountdown() {
+        $('#input-container').hide();
+        $('#countdown-container').show();
+        
+        displayValue('#js-days', window.days);
+        displayValue('#js-hours', window.hours);
+        displayValue('#js-minutes', window.minutes);
+        displayValue('#js-seconds', window.seconds);
+
+        interval = setInterval(function() {
+          if (window.seconds > 0) {
+            window.seconds--;
+            displayValue('#js-seconds', window.seconds);
+          } else {
+            // Seconds is zero - check the minutes
+            if (window.minutes > 0) {
+              window.minutes--;
+              window.seconds = 59;
+              updateValues('minutes');
+            } else {
+              // Minutes is zero, check the hours
+              if (window.hours > 0)  {
+                window.hours--;
+                window.minutes = 59;
+                window.seconds = 59;
+                updateValues('hours');
+              } else {
+                // Hours is zero
+                window.days--;
+                window.hours = 23;
+                window.minutes = 59;
+                window.seconds = 59;
+                updateValues('days');
+              }
+              // $('#js-countdown').addClass('remove');
+              // $('#js-next-container').addClass('bigger');
+            }
+          }
+        }, 1000);
+      }
+
+
+      function updateValues(context) {
+        // if (context === 'days') {
+          // displayValue('#js-days', window.days);
+          displayValue('#js-hours', window.hours);
+          displayValue('#js-minutes', window.minutes);
+          displayValue('#js-seconds', window.seconds);
+        // } else if (context === 'hours') {
+        //   displayValue('#js-hours', window.hours);
+        //   displayValue('#js-minutes', window.minutes);
+        //   displayValue('#js-seconds', window.seconds);
+        // } else if (context === 'minutes') {
+        //   displayValue('#js-minutes', window.minutes);
+        //   displayValue('#js-seconds', window.seconds);
+        // }
+      }
+
+      function displayValue(target, value) {
+        var newDigit = $('<span></span>');
+        $(newDigit).text(pad(value))
+          .addClass('new');
+        $(target).prepend(newDigit);
+        $(target).find('.current').addClass('old').removeClass('current');
+        setTimeout(function() {
+          $(target).find('.old').remove();
+          $(target).find('.new').addClass('current').removeClass('new');
+        }, 900);
+      }
+
+      function pad(number) {
+        return ("0" + number).slice(-2);
+      }
+});
+
+
+    </script>
+  </body>
+</html>
+

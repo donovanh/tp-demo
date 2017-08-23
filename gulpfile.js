@@ -55,7 +55,7 @@ gulp.task("zips", function() {
 });
 
 gulp.task("fonts", function() {
-  return gulp.src(["./src/fonts/*"])
+  return gulp.src(["./src/fonts/**"])
     .pipe(gulp.dest("build/fonts/"));
 });
 
@@ -90,11 +90,15 @@ gulp.task("css", function () {
     .pipe(size({title: 'styles'}))
 });
 
+gulp.task("jquery", function() {
+   return gulp.src(["./node_modules/jquery/dist/jquery.js"])
+    .pipe(gulp.dest('build/javascripts'));
+});
+
 gulp.task("headjs", function() {
   var scripts = [
     "./node_modules/i18next/dist/umd/i18next.js",
     "./node_modules/i18next-xhr-backend/dist/umd/i18nextXHRBackend.js",
-    "./node_modules/jquery/dist/jquery.js",
     "./node_modules/jquery-i18next/dist/umd/jquery-i18next.js",
     "./src/vendor/mustache.js"
   ];
@@ -151,6 +155,8 @@ function addAssets(fileName) {
     .pipe(gulp.dest('output/' + fileName + '/javascripts'));     
   gulp.src('build/locales/**')
     .pipe(gulp.dest('output/' + fileName + '/locales'));   
+    gulp.src('build/fonts/**')
+    .pipe(gulp.dest('output/' + fileName + '/fonts'));  
   gulp.src('build/images/**')
     .pipe(gulp.dest('output/' + fileName + '/images'));
   gulp.src('build/stylesheets/**')
@@ -176,7 +182,7 @@ gulp.task('zip', ['clean:zips'], function() {
 });
 
 
-gulp.task("build", ["html","headjs","js","css","templates","images","fonts","locales","zips","video","data"])
+gulp.task("build", ["html","headjs","js","jquery","css","templates","images","fonts","locales","zips","video","data","make"])
 gulp.task("watch", function() {
   // Watch .html files
   gulp.watch("src/*.html", ["html", browserSync.reload]);

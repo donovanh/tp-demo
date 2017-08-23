@@ -1,7 +1,0 @@
-<p>Hello {{ name }}!</p>
-
-<ul class="nav">
-  <li><a href="#" data-i18n="nav.home">One</a></li>
-  <li><a href="#" data-i18n="nav.page1">Two</a></li>
-  <li><a href="#" data-i18n="nav.page2">Three</a></li>
-</ul>

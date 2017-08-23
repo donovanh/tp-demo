@@ -39,7 +39,7 @@ $(function() {
     var localytics = {}; // Set a global I can populate then use later
   }
 
-  window.appData = false;
+  window.appData = null;
   window.translationsLoadRun = false;
   window.translationsLoaded = false;
   window.templatesRendered = false;
@@ -64,6 +64,7 @@ $(function() {
     } 
     if (window.translationsLoaded && window.templatesLoaded && window.templatesRendered) {
       $('body').localize();
+      $('html').addClass('loaded');
     } else {
       check(poll);
     }
@@ -81,7 +82,7 @@ $(function() {
       'lng': lang,
       'fallbackLng': 'en',
       backend: {
-        loadPath: '/locales/{{lng}}.json'
+        loadPath: './locales/{{lng}}.json'
       }
     }, function() {
       jqueryI18next.init(i18next, $, {
@@ -95,7 +96,7 @@ $(function() {
 
 
   // Get and render the templates
-  $.get('templates/all.mst', function(templateHTML) {
+  $.get('templates/all.mst?2', function(templateHTML) {
     // With templates loaded, display each of the sections
     var templatesArray = $.parseHTML(templateHTML);
     var templates = templatesArray.reduce(function(templates, item) {
@@ -160,7 +161,6 @@ $(function() {
       if (window.appData.hasOwnProperty(appKey)) {
         var thisApp = window.appData[appKey];
         if (hasCategory(thisApp, group.categories)) {
-          console.log('In');
           if (
             (isInUserAttributes(appKey) && group.showOwnedApps)
             || (!isInUserAttributes(appKey) && group.showNonOwnedApps)
