@@ -1,0 +1,119 @@
+<!doctype html>
+<html lang="">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Data test</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" href="./stylesheets/main.css">
+
+    <script src="./javascripts/head.min.js"></script>
+    <script src="./javascripts/main.js"></script>
+
+  </head>
+  <body>
+    
+    <div class="container">
+
+
+      <div class="to-render" data-template="page-title-template" data-settings='{
+        "image": "./images/example/storytoys.png",
+        "height": 78,
+        "width": 320
+      }'></div>
+
+      
+      <div 
+        class="to-render"
+        data-template="section-template"
+        data-child-template="asset-group-template"
+        data-settings='{
+          "bgClass": "bg-white"
+        }'
+        data-dbgroups='[{
+          "title": "Your Apps",
+          "titlei18nKey": "Your Apps",
+          "showOwnedApps": true,
+          "showNonOwnedApps": false,
+          "image": "icon",
+          "class": "icon",
+          "dbitems": [
+            "LeonardosCat","SleepingBeauty","PirateStrangebeard","SnowWhite","PussInBoots","BeautyAndTheBeast","ValentinesCollection","HanselAndGretel","TheJungleBook","TheLittleMermaid","HauntedHouse","GrimmsVolume1","AwesomeCollection","DinoDog","ShipAntics","JellyJumble","PuppyCuts","Thumbelina"
+          ]
+        }, {
+          "title": "Apps you do not own",
+          "titlei18nKey": "Apps you do not own",
+          "showOwnedApps": false,
+          "showNonOwnedApps": true,
+          "image": "icon",
+          "class": "icon",
+          "dbitems": [
+            "LeonardosCat","SleepingBeauty","PirateStrangebeard","SnowWhite","PussInBoots","BeautyAndTheBeast","ValentinesCollection","HanselAndGretel","TheJungleBook","TheLittleMermaid","HauntedHouse","GrimmsVolume1","AwesomeCollection","DinoDog","ShipAntics","JellyJumble","PuppyCuts","Thumbelina"
+          ]
+        }]'
+      ></div>
+
+      <div 
+        class="to-render"
+        data-template="section-template"
+        data-child-template="asset-group-template"
+        data-settings='{
+          "bgClass": "bg-white"
+        }'
+        data-dbgroups='[{
+          "title": "Category: New Apps",
+          "titlei18nKey": "Category New Apps",
+          "showOwnedApps": false,
+          "showNonOwnedApps": true,
+          "image": "icon",
+          "class": "icon",
+          "categories": ["new"]
+        }]'
+      ></div>
+
+      <div 
+        class="to-render"
+        data-template="section-template"
+        data-child-template="asset-group-template"
+        data-settings='{
+          "bgClass": "bg-white"
+        }'
+        data-dbgroups='[{
+          "title": "Category: Sale Apps",
+          "titlei18nKey": "Category Sale Apps",
+          "showOwnedApps": false,
+          "showNonOwnedApps": true,
+          "image": "icon",
+          "class": "icon",
+          "categories": ["sale"]
+        }]'
+      ></div>
+
+<div
+  class="to-render"
+  data-template="footer-link-template"
+  data-settings='{
+    "target": "#",
+    "linkText": "More from TouchPress",
+    "i18n": { 
+      "linkTextKey": "More from TouchPress"
+    }
+  }'></div>
+
+
+
+
+
+
+
+  </div>
+
+    <script>
+
+
+    </script>
+  </body>
+</html>
+

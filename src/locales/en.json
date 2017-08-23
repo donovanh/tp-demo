@@ -1,6 +1,7 @@
 {
   "app": "{{number}} app",
   "app_plural": "{{number}} apps",
+  "Category New Apps": "Category: New Apps",
   "currencySymbol": "£",
   "appTitles": {
     "LeonardosCat": "Leonardos Cat",

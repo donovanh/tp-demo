@@ -130,6 +130,51 @@ $(function() {
     }
   }
 
+  function getItemsFromDBItemsList(group) {
+    var groupItems = [];
+    group.dbitems.forEach(function(appKey) {
+      if (
+        (isInUserAttributes(appKey) && group.showOwnedApps)
+        || (!isInUserAttributes(appKey) && group.showNonOwnedApps)
+      ) {
+        var item = generateItemFromDbGroup(appKey, group)
+        groupItems.push(item);
+      }
+    });
+    return groupItems;
+  }
+
+  function hasCategory(app, categories) {
+    var found = false;
+    categories.forEach(function(category) {
+      if (app.categories.indexOf(category) > -1) {
+        found = true;
+      }
+    });
+    if (found) return app;
+  }
+
+  function getItemsByCategories(group) {
+    var groupItems = [];
+    for (var appKey in window.appData) {
+      if (window.appData.hasOwnProperty(appKey)) {
+        var thisApp = window.appData[appKey];
+        if (hasCategory(thisApp, group.categories)) {
+          console.log('In');
+          if (
+            (isInUserAttributes(appKey) && group.showOwnedApps)
+            || (!isInUserAttributes(appKey) && group.showNonOwnedApps)
+          ) {
+            console.log(appKey);
+            var item = generateItemFromDbGroup(appKey, group)
+            groupItems.push(item);
+          }
+        }
+      }
+    }
+    return groupItems;
+  }
+
   function renderAll(templates) {
     $('.to-render').each(function(index, item) {
       // If it's a section containing groups, it will have a child-template
@@ -145,26 +190,18 @@ $(function() {
         if ($(item).attr('data-dbgroups')) {
           var dbgroups = JSON.parse($(item).attr('data-dbgroups'));
           dbgroups.forEach(function(group) {
-            // Set up the object based on the database data
-            //group.showOwnedApps;
-            // for each app in window.appData
-            // match against the group.items
-            // match also againt the localytics.attributes
-            // if in attributes, and showOwnedApps is true, add it
-            // if not in attributes, and showNonOwnedApps is true, add it
-            group.items = [];
-
-            group.dbitems.forEach(function(appKey) {
-              console.log(window.appData[appKey]);
-              if (
-                (isInUserAttributes(appKey) && group.showOwnedApps)
-                || (!isInUserAttributes(appKey) && group.showNonOwnedApps)
-              ) {
-                var item = generateItemFromDbGroup(appKey, group)
-                group.items.push(item);
-              }
-            });
-            content += renderArrayToHTML(groupTemplate, group);
+            // If no items specified, build the items array by category
+            if (group.dbitems) {
+              group.items = getItemsFromDBItemsList(group);
+            } else if (group.categories) {
+              group.items = getItemsByCategories(group);
+            } else {
+              console.error('Please specify either a list of items, or a category');
+            }
+            console.log(group.items);
+            if (group.items) {
+              content += renderArrayToHTML(groupTemplate, group);
+            }
           });
         }
       }
