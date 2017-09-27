@@ -44,17 +44,19 @@ $(function() {
   window.translationsLoaded = false;
   window.templatesRendered = false;
 
+  // Only load user data in local development mode
   if ($('#__bs_script__').length) {
-    $.get('data/apps.json', function(data) {
-      console.log('App Data loaded');
-      window.appData = data;
-    });
 
     $.get('data/user.json', function(data) {
       console.log('User Data loaded', data);
       localytics = data;
     });
   }
+
+  $.get('data/apps.json', function(data) {
+    console.log('App Data loaded');
+    window.appData = data;
+  });
 
   // Use requestAnimationFrame to poll until page is ready to be localised
   var check = window.requestAnimationFrame;

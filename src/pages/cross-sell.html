@@ -1,0 +1,132 @@
+<!doctype html>
+<html lang="">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Page title</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" href="./stylesheets/main.css">
+    
+    <script src="./javascripts/jquery.js"></script>
+    <script src="./javascripts/head.min.js"></script>
+    <script src="./javascripts/main.js"></script>
+
+  </head>
+  <body>
+    
+    <div class="container">
+
+
+      <!-- Header image -->
+      <div class="to-render" data-template="page-title-template" data-settings='{
+        "image": "./images/example/storytoys.png",
+        "height": 78,
+        "width": 320
+      }'></div>
+
+      <!-- Section (no background)
+        - content can be placed within this section div, and it will be rendered within the section template's "content" property
+        - it does this by rendering the view twice, first to generate internal content, then the section is rendered with the content passed in
+      -->
+      <div class="to-render" data-template="section-template" data-settings='{
+        "bgClass": "bg-none",
+        "title": "Main Stage",
+        "content": "",
+        "i18n": {
+          "title": "Main Stage"
+        }
+      }'>
+
+        <!-- Banners div
+          When using banners this applies a customised flexbox layout for banners so that they sit horizontally
+        -->
+        <div class="banners">
+
+          <!-- Banners
+            - add as many as needed
+            - On iPad, flexbox will lay them out horizontally
+            - Smaller screens, they stack vertically
+          -->
+          <div class="to-render" data-template="banner-template" data-settings='{
+            "target": "#",
+            "title": "Banner title",
+            "subtitle": "",
+            "image": "./images/example/placeholder_",
+            "height": 300,
+            "i18n": {
+              "locale": "en",
+              "title": "banner2Title",
+              "subtitle": ""
+            }
+          }'></div>
+
+          <div class="to-render" data-template="banner-template" data-settings='{
+            "target": "#",
+            "title": "Banner title",
+            "subtitle": "",
+            "image": "./images/example/placeholder_",
+            "height": 300,
+            "i18n": {
+              "locale": "en",
+              "title": "banner2Title",
+              "subtitle": ""
+            }
+          }'></div>
+
+        </div>
+
+      </div>
+
+
+      <!-- Section
+        - By default the "section" uses flexbox and will wrap any items whe needed
+        - the "bgClass" value apples a class, in this case with a white background
+        - "dbgroups" is an array of database items (grouped by a group title) that will be rendered into the section
+        - in this case it is set to *not* show owned apps
+        - non-owned apps are to be shown
+        - the "catrgories" array is categories of apps to show (and are then filtered if owned apps are to be excluded)
+        - in this example the apps listed in data/user.json are filtered out of the list (from data/apps.json)
+      -->
+      <div 
+          class="to-render"
+          data-template="section-template"
+          data-child-template="asset-group-template"
+          data-settings='{
+            "bgClass": "bg-white"
+          }'
+          data-dbgroups='[{
+            "title": "Get more apps",
+            "titlei18nKey": "Get more apps",
+            "showOwnedApps": false,
+            "showNonOwnedApps": true,
+            "image": "icon",
+            "class": "icon",
+            "categories": ["category1"]
+          }]'
+        ></div>
+
+        <!-- Footer link (text link)
+        -->
+        <div
+          class="to-render"
+          data-template="footer-link-template"
+          data-settings='{
+            "target": "#",
+            "linkText": "More from TouchPress",
+            "i18n": { 
+              "linkTextKey": "More from TouchPress"
+            }
+          }'></div>
+
+      </div>
+
+
+    <script>
+
+
+    </script>
+  </body>
+</html>
+

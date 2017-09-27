@@ -1,0 +1,268 @@
+@font-face {
+    font-family: 'Chewy';
+    src: url('../fonts/Chewy/chewy-webfont.woff2') format('woff2'),
+         url('../fonts/Chewy/chewy-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+.promo {
+  background: #004452;
+
+  .first-tagline {
+    position: absolute;
+      top: 14vmin;
+      right: 44vmin;
+      left: 6.25vmin;
+
+    h1 {
+      color: #FE7703;
+      font-size: 3vmin;
+      margin: 0;
+    }
+  }
+
+  .second-tagline {
+    position: absolute;
+      bottom: 20vmin;
+      right: 20vmin;
+      left: 20vmin;
+
+    h2 {
+      color: #FE7703;
+      font-size: 2.5vmin;
+      margin: 0;
+      text-align: center;
+    }
+  }
+
+  .promo-container {
+    height: 100vh;
+    width: 100vw;
+
+    &.image-bg {
+      background-size: cover;
+    }
+  }
+
+  .tiers {
+    height: 40%;
+    display: flex;
+    justify-content: space-around;
+    position: absolute;
+      top: 34%;
+    width: 100%;
+  }
+
+  .tier {
+    width: 32vmin;
+    min-height: 32vmin;
+    display: flex;
+    flex-wrap: wrap;
+    text-align: center;
+    border-radius: 1.5vmin;
+
+    .top {
+      color: #fff;
+      height: 16vmin;
+      width: 100%;
+
+      h2 {
+        color: #fff;
+        font-size: 5vmin;
+        font-weight: normal;
+        text-transform: uppercase;
+        line-height: 1.1;
+        padding: 2.5vmin 4vmin 0;
+        margin: 0;
+      }
+
+      h3 {
+        color: #fff;
+        font-size: 3vmin;
+        margin: 3vmin 0 0;
+      }
+    }
+
+    .bottom {
+      border-radius: 0 0 1.5vmin 1.5vmin;
+      width: 100%;
+
+      h3 {
+        font-size: 3.5vmin;
+        margin: 1vmin 0 .5vmin;
+      }
+
+      .button {
+        background: #2FAC40;
+        display: inline-block;
+        padding: .5vmin 2vmin;
+        border: .25vmin solid #fff;
+        border-radius: 2.5vmin;
+
+        span {
+          color: #fff;
+          font-size: 3vmin;
+        }
+      }
+
+      .small {
+        font-weight: bold;
+        font-size: 1.5vmin;
+        margin: .5vmin 0;
+      }
+
+    }
+
+    &.blue {
+      background: #6991C8;
+      border: .5vmin solid #6991C8;
+
+      h3 {
+        color: #6991C8;
+      }
+    }
+
+    &.pink {
+      background: #E73F8E;
+      border: .5vmin solid #E73F8E;
+
+      .bottom {
+        h3 {
+          color: #E73F8E;
+        }
+      }
+    }
+
+    .bottom {
+      background: #F2E4AD;
+    }
+  }
+
+  .restore-purchases {
+    position: absolute;
+      bottom: 16%;
+      right: 2%;
+    font-size: 1.5vmin;
+
+    .button {
+      background: #00ADEF;
+      display: inline-block;
+      padding: 1vmin 2vmin;
+      border: .25vmin solid #fff;
+      border-radius: .5vmin;
+
+      span {
+        color: #fff;
+        font-size: 2vmin;
+      }
+    }
+  }
+
+  .terms {
+    position: absolute;
+      bottom: 1%;
+      left: 2%;
+      right: 2%;
+
+    p {
+      font-weight: normal;
+      font-size: 1.3vmin;
+    }
+  }
+
+  .image-bg {
+    border-radius: 1.5vmin;
+    border: .5vmin solid #00AEEE;
+    box-shadow: 0 0 10vmin .5vmin rgba(0,0,0,.5);
+    position: absolute;
+      top: calc(50% - 45vmin);
+      right: 0;
+      bottom: 0;
+      left: calc(50% - 45vmin);
+    background: #eee url(./images/in-app-messages/example.png) no-repeat center;
+    background-size: cover;
+    height: 90vmin;
+    width: 90vmin;
+  }
+  .countdown-wrapper, .countdown {
+    position: relative;
+    height: 6vmin;
+    margin: 0 auto;
+    width: 90%;
+  }
+  .number, .separator {
+    color: #fff;
+    font-size: 5vmin;
+    line-height: 6vmin;
+    position: relative;
+    width: 8vmin;
+  }
+
+  .separator {
+    font-size: 4vmin;
+    width: 5vmin;
+  }
+
+  .countdown {
+    display: flex;
+    transform-style: preserve3d;
+    perspective: 500px;
+    height: 4vmin;
+    margin: 0 auto;
+  }
+  .countdown.remove {
+    animation: hide-countdown 1s cubic-bezier(0, 0.9, 0.56, 1.2) forwards;
+    overflow: hidden;
+  }
+
+  .separator {
+    margin: 0;
+    width: 1vmin;
+  }
+
+  .new, .old, .current {
+    color: #fff;
+    position: absolute;
+    height: 5vmin;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+  }
+
+  .new {
+    animation: show-new 0.4s cubic-bezier(0, 0.9, 0.5, 1.2) forwards;
+  }
+
+  .old {
+    animation: hide-old 1s cubic-bezier(0, 0.9, 0.56, 1.2) forwards;
+  }
+
+  @keyframes hide-countdown {
+    to {
+      height: 0;
+      overflow: hidden;
+    }
+  }
+  @keyframes show-new {
+    0% {
+      opacity: 0;
+      transform: translate(-50%, -50%) translateY(0rem) scale(1.5) rotateX(-40deg);
+    }
+    100% {
+      transform: translate(-50%, -50%);
+    }
+  }
+  @keyframes hide-old {
+    0% {
+      transform: translate(-50%, -50%);
+    }
+    100% {
+      opacity: 0;
+      transform: translate(-50%, -50%) translateY(-3rem) scale(0.1);
+    }
+  }
+
+
+}

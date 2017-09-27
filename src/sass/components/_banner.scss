@@ -1,17 +1,36 @@
 .banners {
   display: flex;
+  width: 100%;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.banner-wrapper {
+  margin-right: 10px;
+  width: 100%;
+
+  &:last-child {
+    margin-right: 0;
+  }
 }
 
 .banner {
   border-radius: .5em;
   overflow: hidden;
   position: relative;
+  width: 100%;
 
   a {
+    display: inline-block;
     text-decoration: none;
+    width: 100%;
   }
 
-  img {
+  .image {
+    border-radius: .5em;
+    min-height: 200px;
     width: 100%;
   }
 
@@ -31,20 +50,14 @@
       left: 1em;
     margin: 0;
   }
+    
+}
 
-  &.full-width {
-    width: 100%;
+@media (max-width: $bp-medium) {
+  .banners {
+    flex-wrap: wrap;
   }
-
-  &.half-width {
-    width: 50%;
-  }
-
-  &.two-thirds-width {
-    width: 65.9%;
-  }
-
-  &.third-width {
-    width: 32.9%;
+  .banner-wrapper {
+    margin-right: 0;
   }
 }

@@ -12,7 +12,7 @@
       "web": ""
     },
     "categories": [
-      "new"
+      "new", "category1"
     ]
   },
   "SleepingBeauty": {
@@ -28,7 +28,7 @@
       "web": ""
     },
     "categories": [
-      "new"
+      "new", "category1"
     ]
   },
   "PirateStrangebeard": {
@@ -44,7 +44,7 @@
       "web": ""
     },
     "categories": [
-      "new"
+      "new", "category1"
     ]
   },
   "SnowWhite": {
@@ -60,7 +60,7 @@
       "web": ""
     },
     "categories": [
-     "sale"
+     "sale", "category1"
     ]
   },
   "PussInBoots": {
@@ -76,7 +76,7 @@
       "web": ""
     },
     "categories": [
-      "sale"
+      "sale", "category1"
     ]
   },
   "BeautyAndTheBeast": {
@@ -92,7 +92,7 @@
       "web": ""
     },
     "categories": [
-      "new", "sale"
+      "new", "sale", "category1"
     ]
   },
   "ValentinesCollection": {
@@ -108,7 +108,7 @@
       "web": ""
     },
     "categories": [
-      "sale"
+      "sale", "category1"
     ]
   },
   "HanselAndGretel": {
@@ -124,7 +124,7 @@
       "web": ""
     },
     "categories": [
-      "new"
+      "new", "category1"
     ]
   },
   "TheJungleBook": {
@@ -140,7 +140,7 @@
       "web": ""
     },
     "categories": [
-      "sale"
+      "sale", "category1"
     ]
   },
   "TheLittleMermaid": {
@@ -156,7 +156,7 @@
       "web": ""
     },
     "categories": [
-      "new"
+      "new", "category1"
     ]
   },
   "HauntedHouse": {
@@ -172,7 +172,7 @@
       "web": ""
     },
     "categories": [
-      "sale"
+      "sale", "category1"
     ]
   },
   "GrimmsVolume1": {
@@ -188,7 +188,7 @@
       "web": ""
     },
     "categories": [
-      "new", "sale"
+      "new", "sale", "category2"
     ]
   },
   "AwesomeCollection": {
@@ -204,7 +204,7 @@
       "web": ""
     },
     "categories": [
-      "sale"
+      "sale", "category2"
     ]
   },
   "DinoDog": {
@@ -220,7 +220,7 @@
       "web": ""
     },
     "categories": [
-      "sale"
+      "sale", "category2"
     ]
   },
   "ShipAntics": {
@@ -236,7 +236,7 @@
       "web": ""
     },
     "categories": [
-      "new"
+      "new", "category2"
     ]
   },
   "JellyJumble": {
@@ -252,7 +252,7 @@
       "web": ""
     },
     "categories": [
-      "new"
+      "new", "category2"
     ]
   },
   "PuppyCuts": {
@@ -268,7 +268,7 @@
       "web": ""
     },
     "categories": [
-      "sale"
+      "sale", "category2"
     ]
   },
   "Thumbelina": {
@@ -284,7 +284,7 @@
       "web": ""
     },
     "categories": [
-      "sale"
+      "sale", "category2"
     ]
   }
 }

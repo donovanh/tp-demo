@@ -97,11 +97,11 @@
 </script>
 
 <script id="banner-template" type="text/html">
-  <div class="banner-wrapper">
-    <div class="banner {{class}}">
+  <div class="banner-wrapper {{class}}">
+    <div class="banner">
       <a href="{{target}}">
         {{#i18n.locale}}
-         <img src="{{image}}{{i18n.locale}}@4x.jpg">
+         <div class="image" style="background-image: url('{{image}}{{i18n.locale}}@4x.jpg');{{#height}}height: {{height}}px;{{/height}}"></div>
         {{/i18n.locale}}
         {{^i18n.locale}}
           <img src="{{image}}">

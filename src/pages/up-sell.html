@@ -8,104 +8,90 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <link rel="stylesheet" href="./stylesheets/main.css">
-    <link rel="stylesheet" href="./stylesheets/special/countdown.css">
         
     <script src="./javascripts/jquery.js"></script>
     <script src="./javascripts/head.min.js"></script>
     <script src="./javascripts/main.js"></script>
 
-    <style>
-      
-      @font-face {
-          font-family: 'Chewy';
-          src: url('./fonts/Chewy/chewy-webfont.woff2') format('woff2'),
-               url('./fonts/Chewy/chewy-webfont.woff') format('woff');
-          font-weight: normal;
-          font-style: normal;
-
-      }
-
-      *, body {
-        font-family: Chewy, sans-serif;
-      }
-
-      .image-bg {
-        border-radius: 18px;
-        border: 1px solid #00AEEE;
-        position: absolute;
-          top: 0;
-          right: 0;
-          bottom: 0;
-          left: 0;
-        background: #eee url(./images/in-app-messages/example.png) no-repeat center;
-        background-size: 132%;
-        height: 384px;
-        width: 606px;
-      }
-      .price {
-        position: absolute;
-        background: #6C82E0;
-        padding: 1em;
-        font-size: 22px;
-        border-radius: 1em;
-        box-shadow: 0 0 0 10px #fff;
-        bottom: 4%;
-        left: 50%;
-        transform: translateX(-50%);
-      }
-      .price span {
-        color: #fff !important;
-        letter-spacing: .8px;
-      }
-      .countdown-wrapper, .countdown {
-        background: #fff;
-        width: 120px;
-        height: 30px;
-        border-radius: 1em;
-
-      }
-      .number, .separator {
-        font-size: 20px;
-        line-height: 30px;
-      }
-    </style>
-    <script src="./javascripts/jquery.js"></script>
-    <script src="./javascripts/head.min.js"></script>
-    <script src="./javascripts/main.js"></script>
   </head>
-  <body>
-    <div class="promo-container image-bg">
+  <body class="promo">
+    <div
+      class="promo-container image-bg"
+      style="background-image: url(./images/example/background.jpg);"
+    >
 
-      <div class="price">
+    <!--   <div class="price">
         <span class="only" data-i18n="only">Only</span>
         <span data-i18n="currencySymbol">$</span><span id="js-price">2.99</span>
+      </div> -->
+
+      <div class="first-tagline">
+        <h1 data-i18n="promo-tagline">Get access to our full library. New videos, books and games every month!</h1>
       </div>
 
-      <!-- <div class="countdown-wrapper">
-        <section id="countdown-container" class="countdown-container">
-          <article id="js-countdown" class="countdown">
-            <section id="js-hours" class="number"></section>
-            <section id="js-separator" class="separator">:</section>
-            <section id="js-minutes" class="number"></section>
-            <section id="js-separator" class="separator">:</section>
-            <section id="js-seconds" class="number"></section>
-          </article>
-        </section>
-      </div> -->
+      <section class="tiers">
+        <a href="#">
+          <div class="tier blue">
+            <div class="top">
+              <h2 data-i18n="7 days <br>free!">7 Days Free!</h2>
+            </div>
+            <div class="bottom">
+              <h3 data-i18n="Monthly plan">Monthly Plan</h3>
+              <div class="button">
+                <span data-i18n="currencySymbol">$</span><span id="js-price">3.99</span>
+              </div>
+              <p class="small" data-i18n="Billed monthly">Billed monthly</p>
+            </div>
+          </div>
+        </a>
+        <a href="#">
+          <div class="tier pink">
+            <div class="top">
+              <h3 data-i18n="Offer ends:">Offer Ends:</h3>
+              <div class="countdown-wrapper">
+                <section id="countdown-container" class="countdown-container">
+                  <article id="js-countdown" class="countdown">
+                    <section id="js-hours" class="number"></section>
+                    <section id="js-separator" class="separator">:</section>
+                    <section id="js-minutes" class="number"></section>
+                    <section id="js-separator" class="separator">:</section>
+                    <section id="js-seconds" class="number"></section>
+                  </article>
+                </section>
+              </div>
+            </div>
+            <div class="bottom">
+              <h3 data-i18n="Annual Plan only">Annual Plan only</h3>
+              <div class="button">
+                <span data-i18n="currencySymbol">$</span><span id="js-price">29.99</span>
+              </div>
+              <p class="small" data-i18n="Billed annually">Billed Annually</p>
+            </div>
+          </div>
+        </a>
+      </section>
+
+      <div class="second-tagline">
+        <h2 data-i18n="No commitment, cancel anytime.">No commitment, cancel anytime.</h2>
+      </div>
+
+      <div class="restore-purchases">
+        <a href="#" class="button restore"><span data-i18n="restore purchases">restore purchases</span></a>
+      </div>
+
+      <div class="terms">
+        <p>Payment will be charged to your account at confirmation of purchase. Subscription automatically renews unless auto-renew is turned off at least 24 hours before the end the current period. Account will be charged for renewal within 24 hours prior to the end of the current period, and identify the cost of the renewal. Subscriptions may be managed by the user and auto-renewal may be turned off by going to My Apps after purchase. Any unused portion of the free trial period, if offered, will be forfeited when the user purchases a subscription to that publication, where applicable.</p>
+      </div>
+
 
     </div>
 
     
     <script>
-    /* Spec
-      A square container, static background image and absolutely positioned price text
-      Also a dynamic countdown to a specific end time
-      - Maybe also - a dynamic "percent off" corner banner
-    */
 
     $(function() {
       // Countdown is hidden for now - uncomment the countdown HTML code above container to show it
-      return; // Remove this line to reactivate
+      //return; // Remove this line to reactivate
       if (!$('#js-countdown')) return;
 
       var targetDate  = new Date(Date.UTC(2017, 3, 01));
