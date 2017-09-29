@@ -4,7 +4,7 @@
     "icons": {
       "brick": "",
       "book": "",
-      "icon": "/images/icons/Apps/TPM/Leonardo.jpg"
+      "icon": "./images/icons/Apps/TPM/Leonardo.jpg"
     },
     "urls": {
       "ios": "",
@@ -20,7 +20,7 @@
     "icons": {
       "brick": "",
       "book": "",
-      "icon": "/images/icons/Apps/ST/Sleeping Beauty.jpg"
+      "icon": "./images/icons/Apps/ST/Sleeping Beauty.jpg"
     },
     "urls": {
       "ios": "",
@@ -36,7 +36,7 @@
     "icons": {
       "brick": "",
       "book": "",
-      "icon": "/images/icons/Apps/ST/Pirate Princess.jpg"
+      "icon": "./images/icons/Apps/ST/Pirate Princess.jpg"
     },
     "urls": {
       "ios": "",
@@ -52,7 +52,7 @@
     "icons": {
       "brick": "",
       "book": "",
-      "icon": "/images/icons/Apps/ST/Snow White.jpg"
+      "icon": "./images/icons/Apps/ST/Snow White.jpg"
     },
     "urls": {
       "ios": "",
@@ -68,7 +68,7 @@
     "icons": {
       "brick": "",
       "book": "",
-      "icon": "/images/icons/Apps/ST/Puss in Boots.jpg"
+      "icon": "./images/icons/Apps/ST/Puss in Boots.jpg"
     },
     "urls": {
       "ios": "",
@@ -84,7 +84,7 @@
     "icons": {
       "brick": "",
       "book": "",
-      "icon": "/images/icons/Apps/ST/Beauty and the Beast.jpg"
+      "icon": "./images/icons/Apps/ST/Beauty and the Beast.jpg"
     },
     "urls": {
       "ios": "",
@@ -100,7 +100,7 @@
     "icons": {
       "brick": "",
       "book": "",
-      "icon": "/images/icons/Apps/ST/Valentines Princess.jpg"
+      "icon": "./images/icons/Apps/ST/Valentines Princess.jpg"
     },
     "urls": {
       "ios": "",
@@ -116,7 +116,7 @@
     "icons": {
       "brick": "",
       "book": "",
-      "icon": "/images/icons/Apps/ST/Hansel and Gretel.jpg"
+      "icon": "./images/icons/Apps/ST/Hansel and Gretel.jpg"
     },
     "urls": {
       "ios": "",
@@ -132,7 +132,7 @@
     "icons": {
       "brick": "",
       "book": "",
-      "icon": "/images/icons/Apps/ST/The Jungle Book.jpg"
+      "icon": "./images/icons/Apps/ST/The Jungle Book.jpg"
     },
     "urls": {
       "ios": "",
@@ -148,7 +148,7 @@
     "icons": {
       "brick": "",
       "book": "",
-      "icon": "/images/icons/Apps/ST/The Little Mermaid.jpg"
+      "icon": "./images/icons/Apps/ST/The Little Mermaid.jpg"
     },
     "urls": {
       "ios": "",
@@ -164,7 +164,7 @@
     "icons": {
       "brick": "",
       "book": "",
-      "icon": "/images/icons/Apps/ST/Haunted House.jpg"
+      "icon": "./images/icons/Apps/ST/Haunted House.jpg"
     },
     "urls": {
       "ios": "",
@@ -180,7 +180,7 @@
     "icons": {
       "brick": "",
       "book": "",
-      "icon": "/images/icons/Apps/ST/Grimms Collection.jpg"
+      "icon": "./images/icons/Apps/ST/Grimms Collection.jpg"
     },
     "urls": {
       "ios": "",
@@ -196,7 +196,7 @@
     "icons": {
       "brick": "",
       "book": "",
-      "icon": "/images/icons/Apps/ST/Awesome Collection.jpg"
+      "icon": "./images/icons/Apps/ST/Awesome Collection.jpg"
     },
     "urls": {
       "ios": "",
@@ -212,7 +212,7 @@
     "icons": {
       "brick": "",
       "book": "",
-      "icon": "/images/icons/Apps/ST/Dino Dog.jpg"
+      "icon": "./images/icons/Apps/ST/Dino Dog.jpg"
     },
     "urls": {
       "ios": "",
@@ -228,7 +228,7 @@
     "icons": {
       "brick": "",
       "book": "",
-      "icon": "/images/icons/Apps/ST/ShipAntics.jpg"
+      "icon": "./images/icons/Apps/ST/ShipAntics.jpg"
     },
     "urls": {
       "ios": "",
@@ -244,7 +244,7 @@
     "icons": {
       "brick": "",
       "book": "",
-      "icon": "/images/icons/Apps/ST/Jelly Jumble.jpg"
+      "icon": "./images/icons/Apps/ST/Jelly Jumble.jpg"
     },
     "urls": {
       "ios": "",
@@ -260,7 +260,7 @@
     "icons": {
       "brick": "",
       "book": "",
-      "icon": "/images/icons/Apps/ST/PuppyCuts.jpg"
+      "icon": "./images/icons/Apps/ST/PuppyCuts.jpg"
     },
     "urls": {
       "ios": "",
@@ -276,7 +276,7 @@
     "icons": {
       "brick": "",
       "book": "",
-      "icon": "/images/icons/Apps/ST/Thumbelina.jpg"
+      "icon": "./images/icons/Apps/ST/Thumbelina.jpg"
     },
     "urls": {
       "ios": "",

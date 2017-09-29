@@ -9,12 +9,33 @@
 
     <link rel="stylesheet" href="./stylesheets/main.css">
     
-    <script src="./javascripts/jquery.js"></script>
-    <script src="./javascripts/head.min.js"></script>
-    <script src="./javascripts/main.js"></script>
+    <!--user-->
+    <script>
+      window.userData = @@include('./data/user.json')
+    </script>
+    <!--apps-->
+    <script>
+      window.appData = @@include('./data/apps.json')
+    </script>
+    <!--jquery-->
+    <script src="../../node_modules/jquery/dist/jquery.js" inline></script>
+    <!--i18next-->
+    <script src="../../node_modules/i18next/dist/umd/i18next.js" inline></script>
+    <!--i18nextXHRBackend-->
+    <script src="../../node_modules/i18next-xhr-backend/dist/umd/i18nextXHRBackend.js" inline></script>
+    <!-- jquery-i18next -->
+    <script src="../../node_modules/jquery-i18next/dist/umd/jquery-i18next.js" inline></script>
+    <!-- mustache -->
+    <script src="../vendor/mustache.js" inline></script>
+    <!-- modernizr -->
+    <script src="../javascripts/modernizr.js" inline></script>
+    <!-- templating_logic -->
+    <script src="../javascripts/templating_logic.js" inline></script>
 
   </head>
+
   <body>
+    @@include('./templates/all.mst')
     
     <div class="container">
 

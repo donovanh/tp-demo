@@ -9,21 +9,36 @@
 
     <link rel="stylesheet" href="./stylesheets/main.css">
         
-    <script src="./javascripts/jquery.js"></script>
-    <script src="./javascripts/head.min.js"></script>
-    <script src="./javascripts/main.js"></script>
+    <!--user-->
+    <script>
+      window.userData = @@include('./data/user.json')
+    </script>
+    <!--apps-->
+    <script>
+      window.appData = @@include('./data/apps.json')
+    </script>
+    <!--jquery-->
+    <script src="../../node_modules/jquery/dist/jquery.js" inline></script>
+    <!--i18next-->
+    <script src="../../node_modules/i18next/dist/umd/i18next.js" inline></script>
+    <!--i18nextXHRBackend-->
+    <script src="../../node_modules/i18next-xhr-backend/dist/umd/i18nextXHRBackend.js" inline></script>
+    <!-- jquery-i18next -->
+    <script src="../../node_modules/jquery-i18next/dist/umd/jquery-i18next.js" inline></script>
+    <!-- mustache -->
+    <script src="../vendor/mustache.js" inline></script>
+    <!-- modernizr -->
+    <script src="../javascripts/modernizr.js" inline></script>
+    <!-- templating_logic -->
+    <script src="../javascripts/templating_logic.js" inline></script>
 
   </head>
   <body class="promo">
+
     <div
       class="promo-container image-bg"
       style="background-image: url(./images/example/background.jpg);"
     >
-
-    <!--   <div class="price">
-        <span class="only" data-i18n="only">Only</span>
-        <span data-i18n="currencySymbol">$</span><span id="js-price">2.99</span>
-      </div> -->
 
       <div class="first-tagline">
         <h1 data-i18n="promo-tagline">Get access to our full library. New videos, books and games every month!</h1>
@@ -33,7 +48,7 @@
         <a href="#">
           <div class="tier blue">
             <div class="top">
-              <h2 data-i18n="7 days <br>free!">7 Days Free!</h2>
+              <h2 data-i18n="7 days free!">7 Days Free!</h2>
             </div>
             <div class="bottom">
               <h3 data-i18n="Monthly plan">Monthly Plan</h3>

@@ -1,4 +1,4 @@
-<script id="section-template" type="text/html">
+<script id="section-template" type="text/html" class="js-template">
   <section class="section {{bgClass}}">
     {{#title}}
       <h2 class="section-title" data-i18n="{{i18n.title}}">{{title}}</h2>
@@ -10,7 +10,7 @@
   </section>
 </script>
 
-<script id="page-title-template" type="text/html">
+<script id="page-title-template" type="text/html" class="js-template">
   <div class="page-title">
     <img src="{{image}}"
       {{#width}}width="{{width}}"{{/width}}
@@ -19,13 +19,13 @@
   </div>
 </script>
 
-<script id="footer-link-template" type="text/html">
+<script id="footer-link-template" type="text/html" class="js-template">
   <div class="page-footer">
     <a href="{{target}}" data-i18n="{{i18n.linkTextKey}}">{{linkText}}</a>
   </div>
 </script>
 
-<script id="asset-template" type="text/html">
+<script id="asset-template" type="text/html" class="js-template">
   <div class="asset {{class}}">
     <a href="{{target}}">
       {{#i18n.locale}}
@@ -44,7 +44,7 @@
   </div>
 </script>
 
-<script id="asset-group-template" type="text/html">
+<script id="asset-group-template" type="text/html" class="js-template">
   <div class="asset-group">
     <h2 class="section-title" data-i18n="{{titlei18nKey}}">{{title}}</h2>
     <div class="section-content">
@@ -70,7 +70,7 @@
   </div>
 </script>
 
-<script id="bundle-template" type="text/html">
+<script id="bundle-template" type="text/html" class="js-template">
   <div class="asset bundle {{class}}">
     <a href="{{target}}">
       {{#i18n.locale}}
@@ -96,7 +96,7 @@
   </div>
 </script>
 
-<script id="banner-template" type="text/html">
+<script id="banner-template" type="text/html" class="js-template">
   <div class="banner-wrapper {{class}}">
     <div class="banner">
       <a href="{{target}}">

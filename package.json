@@ -28,6 +28,8 @@
     "path": "^0.12.7"
   },
   "devDependencies": {
+    "gulp-file-include": "^1.2.0",
+    "gulp-inline-source": "^3.1.0",
     "gulp-plumber": "^1.1.0",
     "gulp-rename": "^1.2.2"
   }

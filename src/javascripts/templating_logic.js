@@ -1,23 +1,5 @@
 // Essential helper functions
 
-  document.getHTML= function(who, deep){
-      if(!who || !who.tagName) return '';
-      var txt, ax, el= document.createElement("div");
-      el.appendChild(who.cloneNode(false));
-      txt= el.innerHTML;
-      if(deep){
-          ax= txt.indexOf('>')+1;
-          txt= txt.substring(0, ax)+who.innerHTML+ txt.substring(ax);
-      }
-      el= null;
-      return txt;
-  }
-
-  var escape = document.createElement('textarea');
-  function escapeHTML(html) {
-      escape.textContent = html;
-      return escape.innerHTML;
-  }
   function rendertoHTML(template, settings) {
     return Mustache.render(template, settings);
   }
@@ -36,27 +18,12 @@
 $(function() {
 
   if (!localytics) {
-    var localytics = {}; // Set a global I can populate then use later
+    var localytics = window.userData; // Set local data for development
   }
 
-  window.appData = null;
   window.translationsLoadRun = false;
   window.translationsLoaded = false;
   window.templatesRendered = false;
-
-  // Only load user data in local development mode
-  if ($('#__bs_script__').length) {
-
-    $.get('data/user.json', function(data) {
-      console.log('User Data loaded', data);
-      localytics = data;
-    });
-  }
-
-  $.get('data/apps.json', function(data) {
-    console.log('App Data loaded');
-    window.appData = data;
-  });
 
   // Use requestAnimationFrame to poll until page is ready to be localised
   var check = window.requestAnimationFrame;
@@ -64,7 +31,7 @@ $(function() {
     if (window.appData && !window.translationsLoadRun) {
       loadTranslations(localytics.lang);
     } 
-    if (window.translationsLoaded && window.templatesLoaded && window.templatesRendered) {
+    if (window.translationsLoaded && window.templatesRendered) {
       $('body').localize();
       $('html').addClass('loaded');
     } else {
@@ -78,44 +45,33 @@ $(function() {
   function loadTranslations(lang) {
     window.translationsLoadRun = true;
     // Init and load the translations file
-    i18next.use(i18nextXHRBackend);
     i18next.init({
-      'debug': false,
-      'lng': lang,
-      'fallbackLng': 'en',
-      backend: {
-        loadPath: './locales/{{lng}}.json'
-      }
+      lng: 'en',
+      debug: true,
+      resources: window.locales
     }, function() {
       jqueryI18next.init(i18next, $, {
         optionsAttr: 'i18n-options',
         useOptionsAttr: true
       });
-      console.log('Translations loaded');
       window.translationsLoaded = true;
     });
   }
 
 
   // Get and render the templates
-  $.get('templates/all.mst?2', function(templateHTML) {
-    // With templates loaded, display each of the sections
-    var templatesArray = $.parseHTML(templateHTML);
-    var templates = templatesArray.reduce(function(templates, item) {
-      if ($(item).attr('id')) {
-        templates[$(item).attr('id')] = item;
-      }
-      return templates;
-    }, {});
-    
-    renderAll(templates);
-    if ($('.to-render').length) {
-      renderAll(templates);
+  var templatesArray = $('.js-template');
+  templates = {};
+  templatesArray.each(function(index, item) {
+    if ($(item).attr('id')) {
+      templates[$(item).attr('id')] = item;
     }
-
-    window.templatesLoaded = true;
-
   });
+  
+  renderAll(templates);
+  if ($('.to-render').length) {
+    renderAll(templates);
+  }
 
   function isInUserAttributes(appKey) {
     return localytics.attributes[appKey] !== undefined;
@@ -167,7 +123,6 @@ $(function() {
             (isInUserAttributes(appKey) && group.showOwnedApps)
             || (!isInUserAttributes(appKey) && group.showNonOwnedApps)
           ) {
-            console.log(appKey);
             var item = generateItemFromDbGroup(appKey, group)
             groupItems.push(item);
           }
@@ -200,7 +155,6 @@ $(function() {
             } else {
               console.error('Please specify either a list of items, or a category');
             }
-            console.log(group.items);
             if (group.items) {
               content += renderArrayToHTML(groupTemplate, group);
             }
@@ -217,7 +171,6 @@ $(function() {
 
       render(template, settings, item);
     });
-    console.log('Templates rendered');
     window.templatesRendered = true;
   }
 

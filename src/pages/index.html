@@ -9,43 +9,34 @@
 
     <link rel="stylesheet" href="./stylesheets/styleguide.css">
     <link rel="stylesheet" href="./stylesheets/main.css">
-    <script src="./javascripts/jquery.js"></script>
-    <script src="./javascripts/head.min.js"></script>
-    <script src="./javascripts/main.js"></script>
+    
+    <!--user-->
+    <script>
+      window.userData = @@include('./data/user.json')
+    </script>
+    <!--apps-->
+    <script>
+      window.appData = @@include('./data/apps.json')
+    </script>
+    <!--jquery-->
+    <script src="../../node_modules/jquery/dist/jquery.js" inline></script>
+    <!--i18next-->
+    <script src="../../node_modules/i18next/dist/umd/i18next.js" inline></script>
+    <!--i18nextXHRBackend-->
+    <script src="../../node_modules/i18next-xhr-backend/dist/umd/i18nextXHRBackend.js" inline></script>
+    <!-- jquery-i18next -->
+    <script src="../../node_modules/jquery-i18next/dist/umd/jquery-i18next.js" inline></script>
+    <!-- mustache -->
+    <script src="../vendor/mustache.js" inline></script>
+    <!-- modernizr -->
+    <script src="../javascripts/modernizr.js" inline></script>
+    <!-- templating_logic -->
+    <script src="../javascripts/templating_logic.js" inline></script>
 
   </head>
-<script>
-/*
-Notes
-TODO:
 
-* Move templates into their own folder
-* Set up other components
-* Add in modifiers
-* Add in animations
-
-Other components to build:
-- Text container - e.g. terms and conditions
-
-
-- Modifications
--- Free / New badge
--- Animated background (sprite)
--- Other animation types
-
-- Make page content only show after the translations have finished
-
-- Show-on-scroll animations
--- Play-once
--- Play each time
-
-- Visual themes
--- Custom border / shadow shapes per theme
--- Custom animations to match theme
-*/
-</script>
   <body>
-    
+    @@include('./templates/all.mst')
     <div class="container">
       <div class="row">
         <div class="col-12">
@@ -483,6 +474,24 @@ Other components to build:
         $(this).parent().find('.usage').toggleClass('hidden');
       });
 
+      document.getHTML= function(who, deep){
+          if(!who || !who.tagName) return '';
+          var txt, ax, el= document.createElement("div");
+          el.appendChild(who.cloneNode(false));
+          txt= el.innerHTML;
+          if(deep){
+              ax= txt.indexOf('>')+1;
+              txt= txt.substring(0, ax)+who.innerHTML+ txt.substring(ax);
+          }
+          el= null;
+          return txt;
+      }
+
+      var escape = document.createElement('textarea');
+      function escapeHTML(html) {
+          escape.textContent = html;
+          return escape.innerHTML;
+      }
       // Render the usage instructions
       $('.to-render').each(function(index, item) {
         // Generate the usage section
