@@ -200,6 +200,21 @@ The main dynamic element on this page is the countdown. This is a JavaScript cou
 
 This UTC date is then compared to the devices local date to ensure the countdown is accurate. Currently this is hardcoded.
 
+## Page: up-sell-video.html
+
+Siilar to the `up-sell.html` page, this page contains some extra code to embed a video in the background. To customise the video, edit this part of the HTML:
+
+    <div class="video-container">
+      <video autoplay loop class="fillWidth">
+        <source src="https://cssanimation.rocks/levelup/public/video/Big-Apple/MP4/Big-Apple.mp4" type="video/mp4" />
+      </video>
+      <div class="poster hidden">
+        <img src="https://cssanimation.rocks/levelup/public/video/Big-Apple/Snapshots/Big-Apple.jpg" alt="Big Apple">
+      </div>
+    </div>
+
+The video referenced in the `source` tag should be an mp4 video. You can also specify a poster file that will show when the video is loading. 
+
 ## Templates
 
 Templates are defined within the index.html file [TODO: migrate them into their own file and load them asynchronously]. They are [Mustache](https://mustache.github.io/mustache.5.html) templates and can be found within `script` tags near the top of the file.

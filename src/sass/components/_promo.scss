@@ -75,8 +75,12 @@
     object-fit: cover;
   }
 
-  .hidden {
+  .poster {
     opacity: 0;
+  }
+
+  .js-loading .poster {
+    opacity: 1;
   }
 
   .tiers {
