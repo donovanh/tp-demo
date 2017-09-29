@@ -239,30 +239,30 @@
     animation: hide-old 1s cubic-bezier(0, 0.9, 0.56, 1.2) forwards;
   }
 
-  @keyframes hide-countdown {
-    to {
-      height: 0;
-      overflow: hidden;
-    }
-  }
-  @keyframes show-new {
-    0% {
-      opacity: 0;
-      transform: translate(-50%, -50%) translateY(0rem) scale(1.5) rotateX(-40deg);
-    }
-    100% {
-      transform: translate(-50%, -50%);
-    }
-  }
-  @keyframes hide-old {
-    0% {
-      transform: translate(-50%, -50%);
-    }
-    100% {
-      opacity: 0;
-      transform: translate(-50%, -50%) translateY(-3rem) scale(0.1);
-    }
-  }
-
-
 }
+
+@keyframes hide-countdown {
+  to {
+    height: 0;
+    overflow: hidden;
+  }
+}
+@keyframes show-new {
+  0% {
+    opacity: 0;
+    transform: translate(-50%, -50%) translateY(0rem) scale(1.5) rotateX(-40deg);
+  }
+  100% {
+    transform: translate(-50%, -50%);
+  }
+}
+@keyframes hide-old {
+  0% {
+    transform: translate(-50%, -50%);
+  }
+  100% {
+    opacity: 0;
+    transform: translate(-50%, -50%) translateY(-3rem) scale(0.1);
+  }
+}
+
