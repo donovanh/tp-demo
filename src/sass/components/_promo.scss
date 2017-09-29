@@ -37,12 +37,46 @@
   }
 
   .promo-container {
-    height: 100vh;
-    width: 100vw;
+    border-radius: 1.5vmin;
+    border: .5vmin solid #00AEEE;
+    box-shadow: 0 0 10vmin .5vmin rgba(0,0,0,.5);
+    position: absolute;
+      top: calc(50% - 45vmin);
+      right: 0;
+      bottom: 0;
+      left: calc(50% - 45vmin);
+    background: #eee url(./images/in-app-messages/example.png) no-repeat center;
+    background-size: cover;
+    overflow: hidden;
+    height: 90vmin;
+    width: 90vmin;
 
     &.image-bg {
       background-size: cover;
     }
+
+    * {
+      z-index: 10;
+    }
+  }
+
+  .video-container,
+  .video-container .poster,
+  .video-container video {
+    border-radius: 1.75vmin;
+    height: 89.5vmin;
+    width: 89.5vmin;
+    overflow: hidden;
+    position: absolute;
+    top: -.25vmin;
+    right: 0;
+    bottom: 0;
+    left: -.25vmin;
+    object-fit: cover;
+  }
+
+  .hidden {
+    opacity: 0;
   }
 
   .tiers {
@@ -171,20 +205,6 @@
     }
   }
 
-  .image-bg {
-    border-radius: 1.5vmin;
-    border: .5vmin solid #00AEEE;
-    box-shadow: 0 0 10vmin .5vmin rgba(0,0,0,.5);
-    position: absolute;
-      top: calc(50% - 45vmin);
-      right: 0;
-      bottom: 0;
-      left: calc(50% - 45vmin);
-    background: #eee url(./images/in-app-messages/example.png) no-repeat center;
-    background-size: cover;
-    height: 90vmin;
-    width: 90vmin;
-  }
   .countdown-wrapper, .countdown {
     position: relative;
     height: 6vmin;

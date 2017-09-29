@@ -8,6 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <link rel="stylesheet" href="./stylesheets/main.css">
+    
     <!--user-->
     <script>
       window.userData = @@include('./data/user.json')
@@ -17,19 +18,33 @@
       window.appData = @@include('./data/apps.json')
     </script>
     <!--jquery-->
-    <script src="../../node_modules/jquery/dist/jquery.js" inline></script>
+    <script>
+      @@include('../node_modules/jquery/dist/jquery.js')
+    </script>
+    <!-- locales strings -->
+    <script>
+      window.locales = @@include('./locales/all.json')
+    </script>
     <!--i18next-->
-    <script src="../../node_modules/i18next/dist/umd/i18next.js" inline></script>
-    <!--i18nextXHRBackend-->
-    <script src="../../node_modules/i18next-xhr-backend/dist/umd/i18nextXHRBackend.js" inline></script>
+    <script>
+      @@include('../node_modules/i18next/dist/umd/i18next.js')
+    </script>
     <!-- jquery-i18next -->
-    <script src="../../node_modules/jquery-i18next/dist/umd/jquery-i18next.js" inline></script>
+    <script>
+      @@include('../node_modules/jquery-i18next/dist/umd/jquery-i18next.js')
+    </script>
     <!-- mustache -->
-    <script src="../vendor/mustache.js" inline></script>
+    <script>
+      @@include('./javascripts/mustache.js')
+    </script>
     <!-- modernizr -->
-    <script src="../javascripts/modernizr.js" inline></script>
+    <script>
+      @@include('./javascripts/modernizr.js')
+    </script>
     <!-- templating_logic -->
-    <script src="../javascripts/templating_logic.js" inline></script>
+    <script>
+      @@include('./javascripts/templating_logic.js')
+    </script>
 
   </head>
 

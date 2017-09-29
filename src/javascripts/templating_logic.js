@@ -60,17 +60,18 @@ $(function() {
 
 
   // Get and render the templates
-  var templatesArray = $('.js-template');
-  templates = {};
-  templatesArray.each(function(index, item) {
-    if ($(item).attr('id')) {
-      templates[$(item).attr('id')] = item;
+  if ($('.js-template').length) {
+    var templatesArray = $('.js-template');
+    templates = {};
+    templatesArray.each(function(index, item) {
+      if ($(item).attr('id')) {
+        templates[$(item).attr('id')] = item;
+      }
+    });
+
+    if ($('.to-render').length) {
+      renderAll(templates);
     }
-  });
-  
-  renderAll(templates);
-  if ($('.to-render').length) {
-    renderAll(templates);
   }
 
   function isInUserAttributes(appKey) {

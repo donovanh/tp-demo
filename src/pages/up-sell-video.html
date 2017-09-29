@@ -50,9 +50,17 @@
   <body class="promo">
 
     <div
-      class="promo-container image-bg"
-      style="background-image: url(./images/example/background.jpg);"
+      class="promo-container video-bg"
     >
+      <div class="video-container">
+        <video autoplay loop class="fillWidth">
+          <source src="https://cssanimation.rocks/levelup/public/video/Big-Apple/MP4/Big-Apple.mp4" type="video/mp4" />Your browser does not support the video tag. I suggest you upgrade your browser.
+          <source src="https://cssanimation.rocks/levelup/public/video/Big-Apple/WEBM/Big-Apple.mp4" type="video/webm" />Your browser does not support the video tag. I suggest you upgrade your browser.
+        </video>
+        <div class="poster hidden">
+          <img src="https://cssanimation.rocks/levelup/public/video/Big-Apple/Snapshots/Big-Apple.jpg" alt="Big Apple">
+        </div>
+      </div>
 
       <div class="first-tagline">
         <h1 data-i18n="promo-tagline">Get access to our full library. New videos, books and games every month!</h1>
@@ -119,7 +127,6 @@
     <script>
 
     $(function() {
-      // Countdown is hidden for now - uncomment the countdown HTML code above container to show it
       //return; // Remove this line to reactivate
       if (!$('#js-countdown')) return;
 
@@ -244,6 +251,63 @@
 });
 
 
+    </script>
+
+    <script>
+      document.body.classList.add('js-loading');
+
+      window.addEventListener("load", showPage);
+
+      function showPage() {
+        document.body.classList.remove('js-loading');
+      }
+
+      // Embed code adapted from Coverr.co
+      $( document ).ready(function() {
+
+          initBannerVideoSize('.video-container .poster img');
+          initBannerVideoSize('.video-container .filter');
+          initBannerVideoSize('.video-container video');
+
+          $(window).on('resize', function() {
+              scaleBannerVideoSize('.video-container .poster img');
+              scaleBannerVideoSize('.video-container .filter');
+              scaleBannerVideoSize('.video-container video');
+          });
+
+      });
+
+      function initBannerVideoSize(element){
+
+          $(element).each(function(){
+              $(this).data('height', $(this).height());
+              $(this).data('width', $(this).width());
+          });
+
+          scaleBannerVideoSize(element);
+
+      }
+
+      function scaleBannerVideoSize(element){
+
+          var windowWidth = $(window).width(),
+          windowHeight = $(window).height(),
+          videoWidth,
+          videoHeight;
+
+          // $(element).each(function(){
+          //     var videoAspectRatio = $(this).data('height')/$(this).data('width');
+
+          //     $(this).width(windowWidth);
+
+          //     videoHeight = windowHeight;
+          //     videoWidth = videoHeight / videoAspectRatio;
+          //     $(this).css({'margin-top' : 0, 'margin-left' : -(videoWidth - windowWidth) / 2 + 'px'});
+
+          //     $(this).width(videoWidth).height(videoHeight);
+
+          // });
+      }
     </script>
   </body>
 </html>

@@ -10,9 +10,38 @@
     <link rel="stylesheet" href="./stylesheets/main.css">
     <link rel="stylesheet" href="./stylesheets/special/countdown.css">
         
-    <script src="./javascripts/jquery.js"></script>
-    <script src="./javascripts/head.min.js"></script>
-    <script src="./javascripts/main.js"></script>
+    <!--user-->
+    <script>
+      window.userData = @@include('./data/user.json')
+    </script>
+    <!--apps-->
+    <script>
+      window.appData = @@include('./data/apps.json')
+    </script>
+    <!--jquery-->
+    <script>
+      @@include('../node_modules/jquery/dist/jquery.js')
+    </script>
+    <!--i18next-->
+    <script>
+      @@include('../node_modules/i18next/dist/umd/i18next.js')
+    </script>
+    <!-- jquery-i18next -->
+    <script>
+      @@include('../node_modules/jquery-i18next/dist/umd/jquery-i18next.js')
+    </script>
+    <!-- mustache -->
+    <script>
+      @@include('./javascripts/mustache.js')
+    </script>
+    <!-- modernizr -->
+    <script>
+      @@include('./javascripts/modernizr.js')
+    </script>
+    <!-- templating_logic -->
+    <script>
+      @@include('./javascripts/templating_logic.js')
+    </script>
 
     <style>
       

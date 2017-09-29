@@ -15,7 +15,6 @@ var gulp = require("gulp"),
     zip = require('gulp-zip'),
     forEach = require('gulp-foreach'),
     flatten = require('gulp-flatten'),
-    inlinesource = require('gulp-inline-source'),
     fileinclude = require('gulp-file-include');
 
 gulp.dest(function(file){
@@ -47,7 +46,6 @@ gulp.task("html", function() {
       prefix: '@@',
       basepath: './src'
     }))
-    .pipe(inlinesource())
     .pipe(gulp.dest("build/"));
 });
 
